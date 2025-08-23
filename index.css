@@ -27,17 +27,13 @@
     left: 45%;
     }
 
-    .box{
-        display: block;
-        width: 100px;
-    }
 
     .topo{
       display: flex;
       position: fixed;
       border: 5px solid azure;
       box-shadow: 0 0 2px black;
-      height: 80px;
+      height: 120px;
       width: 2000px;
       top: -10px;
       left: -10px;
@@ -115,4 +111,39 @@ p{
   opacity: 1;
   transform: translate(0, 0);
 }
+
+#produtos{
+  display: block;
+  height: 450px;
+  width: 400px;
+  background-color: aquamarine;
+  margin-left: 60px;
+}
+
+.button{
+      width: 150px;
+      color: rgb(255, 255, 255);
+      background-color: rgb(204, 87, 169);
+      border-radius: 50px;
+      text-align: center;
+      font-size: 25px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+      display: block;
+      margin-left: 125px;
+}
+
+.button:hover{
+    transform: scale(1.05);
+    box-shadow: 10px 10px 30px rgba(0, 255, 0, 0.3);
+}
+
+.comercio{
+  display: flex;
+  padding: 80px;
+  margin-left: 150px;
+}
+
 
