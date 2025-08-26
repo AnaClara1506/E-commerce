@@ -1,0 +1,67 @@
+
+
+.button{
+    width: 150px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(204, 87, 169);
+    border-radius: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-left: 330px;
+  }
+
+.button:hover{
+    transform: scale(1.05);
+    box-shadow: 10px 10px 30px rgba(0, 255, 0, 0.3);
+  }
+
+.box{
+    text-align: center;
+    width: 800px;    
+    margin-left: 55%;
+    margin-top: 10%;
+    justify-content: center;
+    font-size: 30px;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: burlywood;
+  }
+
+.textbox{
+    cursor: text;
+    text-align: center;
+    border-radius: 50px;
+    width: 500px;
+    height: 40px;
+    margin: 20px;
+
+}
+
+
+body{
+    background-image: url(Imagens/FundoLogin.png);
+    font-family: 'Poppins', sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1{
+    font-family: 'Poppins' sans-serif;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-shadow: 0 0 5px black;
+}
+
+a{
+  color: white;
+  font-style: normal;
+  font-size: 20px;    
+  text-decoration: none;
+  margin-right: 30px;
+  margin-left: 90px;
+  top: 20px;
+  text-shadow: 0 0 4px rgb(0, 0, 0);
+  }
