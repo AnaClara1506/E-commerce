@@ -24,10 +24,11 @@
         <label for='admin'>Digite o id de administrador <br>ou 0 para cliente:</label><br>
         <input type='numeric' name='admin' id='admin'><br><br>
 
+        <label for='telefone'>Digite o telefone do usuário:</label><br>
+        <input type='numeric' name='telefone' id='telefone'><br><br>
+
 
         <button type='submit'>Cadastrar</button>
-
-
     </form>
 </body>
 </html>

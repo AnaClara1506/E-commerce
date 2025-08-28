@@ -3,22 +3,22 @@ include 'util.php';
 
 $conn = conecta();
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+if (isset($_GET['id_usuario'])) {
+    $id_usuario = $_GET['id_usuario'];
 
-    $varSQL = "DELETE FROM usuarios WHERE id = :id";
+    $varSQL = "DELETE FROM usuario WHERE id_usuario = :id_usuario";
 
     $delete = $conn->prepare($varSQL);
-    $delete->bindParam(':id', $id);
+    $delete->bindParam(':id_usuario', $id_usuario);
 
     if ($delete->execute()) {
-        echo "Produto excluído com sucesso.<br>";
+        echo "Usuário excluído com sucesso.<br>";
     } else {
-        echo "Erro ao excluir produto.<br>";
+        echo "Erro ao excluir o usuário.<br>";
     }
 } else {
-    echo "ID não informado.";
+    echo "ID do usuário não informado.";
 }
 
-echo '<a href="produtos.php">Voltar para a lista de produtos</a>';
+ header('Location: usuario.php');
 ?>

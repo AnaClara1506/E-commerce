@@ -33,8 +33,8 @@
             echo "<td>".$linha['senha']."</td>";
             echo "<td>".$linha['admin']."</td>";
             echo "<td>".$linha['telefone']."</td>";
-            echo "<td><a href='alterarUsuario.php?id=".$linha['id_usuario']."'>Alterar</a></td>";
-            echo "<td><a href='excluirUsuario.php?id=".$linha['id_usuario']."'>Excluir</a></td></tr>";
+            echo "<td><a href='alterarUsuario.php?id_usuario=".$linha['id_usuario']."'>Alterar</a></td>";
+            echo "<td><a href='excluirUsuario.php?id_usuario=".$linha['id_usuario']."'>Excluir</a></td></tr>";
         }
         echo "</table><br><a href='adicionarUsuario.php'>Adicionar novo produto</a>"; ?>
 
