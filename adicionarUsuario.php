@@ -18,7 +18,7 @@
 
 
         <label for='senha'>Digite a sua senha:</label><br>
-        <input type='text' name='senha' id='senha'><br><br>
+        <input type='password' name='senha' id='senha'><br><br>
 
 
         <label for='admin'>Digite o id de administrador <br>ou 0 para cliente:</label><br>
