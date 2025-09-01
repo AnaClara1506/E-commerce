@@ -4,69 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ecoline</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body style="background-color: #f3ead6;">
-
-    <div class="container-imagem">
-        <div class="topo">
-            <div class="logo"><img src="Imagens/Logotipo.png" alt="" width="120px" height="120px"></div>
-            <a href="Sobre.html" style="top: 60px; font-size: 25px;">Sobre</a>
-            <a href="ajuda.html" style="top: 60px; font-size: 25px;">Ajuda</a>
-            <a href="contato.html" style="top: 60px; font-size: 25px;">Contato</a>
-            <a href="index.html" style="top: 60px; font-size: 25px;">Home</a>
-            <a href="login.html"><div class="button" style="margin-top: 45px; margin-left: 600px;">Login</div></a>
-            <a href="#"><div class="button" style="margin-top: 45px; margin-left: -100px; ">Carrinho</div></a>
+<body>
+    <div class="container">
+        <div class="container-imagem">
+            <div class="topo">
+                <nav>
+                    <img src="Imagens/Logotipo.png" alt="Logotipo" width="120px" height="120px" class="logo">
+                    <div class="container-menu">
+                        <a href="Sobre.html">Sobre</a>
+                        <a href="ajuda.html" >Ajuda</a>
+                        <a href="contato.html">Contato</a>
+                        <a href="index.html" >Home</a>
+                        <div class="container-botoes">
+                            <a href="login.html" class="button">Login</a>
+                            <a href="#" class="button">Carrinho</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!--<img src="Imagens/Fundo.png" alt="" width="2000px" height="1000px" style="margin-left: -10px; margin-top: -10px; display: block;">-->
+            <div class="box">
+                <h1>Bem vindo ao nosso site!</h1>
+            </div>
         </div>
-        <img src="Imagens/Fundo.png" alt="" width="2000px" height="1000px" style="margin-left: -10px; margin-top: -10px; display: block;">
-        <div class="box">
-        <h1 class="fade-in-text">BEM VINDO AO NOSSO SITE</h1>
-        <h3 class="fade-in-text" style="font-size: 30px;">Informaçoes do site aqui</h3>
-        </div>
-    </div>
 
-    <p class="fade-in-text; tag" style="font-size: 60px;">NOSSOS PRODUTOS</p>
-    <div class="comercio">
-    <div class="tag" id="produtos">
-        <img src="Imagens/Caderno.jpeg" style="width: 400px; height: 250px;"  alt="">
-        <p>CADERNO DE FLORES</p>
-        <p style="font-size: 25px;">R$35,00</p>
-        <a href="#" style="top: -20px;"><div class="button">Comprar</div></a>
-    </div>
-
+        <h2 class="fade-in-text; tag">Nossos produtos</h2>
+        <div class="comercio">
         <div class="tag" id="produtos">
-        <img src="Imagens/Caderno.jpeg" style="width: 400px; height: 250px;"  alt="">
-        <p>CADERNO DE FLORES</p>
-        <p style="font-size: 25px;">R$35,00</p>
-        <a href="#" style="top: -20px;"><div class="button">Comprar</div></a>
+            <img src="Imagens/Caderno.jpeg" alt="">
+            <p>Caderno modelo 1</p>
+            <p class="preco">R$20,00</p>
+            <a href="#" class="button">Comprar</a>
         </div>
 
-        <div class="tag" id="produtos">
-        <img src="Imagens/Caderno.jpeg" style="width: 400px; height: 250px;"  alt="">
-        <p>CADERNO DE FLORES</p>
-        <p style="font-size: 25px;">R$35,00</p>
-        <a href="#" style="top: -20px"><div class="button">Comprar</div></a>
+            <div class="tag" id="produtos">
+                <img src="Imagens/Caderno.jpeg" alt="">
+                <p>Caderno modelo 2</p>
+                <p class="preco">R$20,00</p>
+                <a href="#" class="button">Comprar</a>
+                </div>
+                <div class="tag" id="produtos">
+                <img src="Imagens/Caderno.jpeg"  alt="">
+                <p>Caderno modelo 3</p>
+                <p class="preco">R$20,00</p>
+                <a href="#" class="button">Comprar</a>
+            </div>
         </div>
+        <div class="baixo"><img src="Imagens/LogoInsta.png" alt="Logo Instagram" width="80px" height="80px">@Ecoline.ltda</div>
+        
+        <script>
+        $(document).on("scroll", function() {
+            var pageTop = $(document).scrollTop();
+            var pageBottom = pageTop + $(window).height();
+            var tags = $(".tag");
+
+            for (var i = 0; i < tags.length; i++) {
+                var tag = tags[i];
+                if ($(tag).position().top < pageBottom) {
+                    $(tag).addClass("visible");
+                } else {
+                    $(tag).removeClass("visible");
+                }
+            }
+        });
+        </script>
     </div>
-    <div class="baixo"><img src="Imagens/LogoInsta.png" alt="" width="80px" height="80px">@Ecoline.ltda</div>
-    <p>@Authored by Ecoline LTDA</p>
-    <script>
-      $(document).on("scroll", function() {
-          var pageTop = $(document).scrollTop();
-          var pageBottom = pageTop + $(window).height();
-          var tags = $(".tag");
-
-          for (var i = 0; i < tags.length; i++) {
-              var tag = tags[i];
-              if ($(tag).position().top < pageBottom) {
-                  $(tag).addClass("visible");
-              } else {
-                  $(tag).removeClass("visible");
-              }
-          }
-      });
-    </script>
 </body>
 </html>

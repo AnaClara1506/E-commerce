@@ -1,72 +1,8 @@
-    .container-imagem {
-      position: relative;
-      display: inline-block;
-    }
+    
 
-    body{
-      font-family: 'Poppins', sans-serif;
-    }
+   
 
 
-
-    h1{
-    text-align: center;
-    justify-content: center;
-    color: rgb(255, 255, 255);
-    text-shadow: 0 0 5px rgb(0, 0, 0);
-    position: absolute;
-    top: 30%;
-    left: 45%;
-    }
-
-    h3{
-    text-align: center;
-    justify-content: center;
-    color: rgb(255, 255, 255);
-    text-shadow: 0 0 5px rgb(0, 0, 0);
-    position: absolute;
-    top: 40%;
-    left: 45%;
-    }
-
-
-    .topo{
-      display: flex;
-      position: fixed;
-      border: 5px solid #dba4a4;
-      box-shadow: 0 0 2px black;
-      height: 120px;
-      width: 2000px;
-      top: -10px;
-      left: -10px;
-    }
-
-    a{
-    color: white;
-    font-style: normal;
-    font-size: 20px;    
-    text-decoration: none;
-    margin-right: 30px;
-    margin-left: 90px;
-    position: relative;
-    top: 20px;
-    text-shadow: 0 0 4px rgb(0, 0, 0);
-    }
-
-   .logo{
-    float: left;
-    width: 70px;
-    height: 70px;  
-    }
-
-.fade-in-text {
-  font-size: 60px;
-  animation: fadeIn 3s;
-  -webkit-animation: fadeIn 3s;
-  -moz-animation: fadeIn 3s;
-  -o-animation: fadeIn 3s;
-  -ms-animation: fadeIn 3s;
-}
 
 @keyframes fadeIn {
   0% { opacity: 0; }
@@ -137,7 +73,6 @@ p{
       text-decoration: none;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       overflow: hidden;
-      display: block;
       margin-left: 125px;
 }
 
@@ -160,5 +95,12 @@ p{
   left: 10px;
   align-items: center;
   font-size: 20px;
+}
+
+.preco{
+  font-size: 100px;
+}
+h4{
+  
 }
 
