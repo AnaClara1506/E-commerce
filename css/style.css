@@ -5,7 +5,8 @@
 }
 .container-imagem {
   position: relative;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
 }
 body{
     color: #173b0c;
@@ -23,28 +24,24 @@ body{
   background-color: #77b664e0;
   box-shadow: 0 0 2px black;
   justify-content: space-between;
+  align-items: center;
 }
 .topo nav a{
   color: white;
   font-style: normal;
   font-size: 20px;    
   text-decoration: none;
-  margin-right: 30px;
-  margin-left: 90px;
   top: 20px;
   text-shadow: 0 0 4px rgb(0, 0, 0);
 }
 
-.logo{
-  float: left;
-  width: 70px;
-  height: 70px;  
+nav{
+  display: flex;
+  min-width: 500px;
+  justify-content: space-between;
 }
 
 /*Botões*/
-.container-botoes{
-  margin-left: auto;
-}
 .button{
   display: inline-flex;
   text-align: center;
