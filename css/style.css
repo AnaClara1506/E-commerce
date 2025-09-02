@@ -56,6 +56,7 @@ nav{
 }
 
 /*Botões*/
+
 .button{
   text-align: center;
   justify-content: center;
@@ -93,7 +94,6 @@ h2{
   font-size: 30px;
   
 }
-
 
 p{
     color: rgb(255, 255, 255);
@@ -155,7 +155,7 @@ p{
   font-size: 25px;
 }
 
-.textbox{
+article{
   margin: 30px 30px;
   text-align: justify;
 }
@@ -193,9 +193,9 @@ p{
   100% { opacity: 1; }
 }
 
-@media (max-width: 768px){
-  .topo nav{ gap: 16px; }
-  .container-botoes{ gap: 12px; }
+/*Responsividade*/
+@media (max-width: 900px){
+  nav{min-width: 200px;}
   .menu {
     display: none;
     position: fixed;
@@ -205,6 +205,7 @@ p{
     width: 400px;
     background-color: #77b664e0;
     z-index: 1000;
+    padding: 50px 50px;
   }
   .menu.active {
     display: block;
@@ -212,8 +213,13 @@ p{
   .menu nav {
     flex-direction: column;
     gap: 16px;
+    text-align: center;
   }
   .menu-hamburguer {
     display: block;
+  }
+  .comercio{
+    flex-direction: column;
+    gap: 30px;
   }
 }
