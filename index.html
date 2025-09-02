@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,31 +9,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
 <body>
     <div class="container">
         <div class="container-imagem">
             <div class="topo">
-                    <img src="Imagens/Logotipo.png" alt="Logotipo" width="100px" class="logo">
-                <nav>
+                <img src="Imagens/Logotipo.png" alt="Logotipo" width="100px" class="logo">
+                <div class="menu">
+                    <nav>
                         <a href="Sobre.html">Sobre</a>
-                        <a href="ajuda.html" >Ajuda</a>
+                        <a href="ajuda.html">Ajuda</a>
                         <a href="contato.html">Contato</a>
-                        <a href="index.html" >Home</a>
-                </nav>
-                        <div class="container-botoes">
-                            <a href="login.html" class="button">Login</a>
-                            <a href="#" class="button">Carrinho</a>
-                        </div>
+                        <a href="index.html">Home</a>
+                    </nav>
+                    <div class="container-botoes">
+                        <a href="login.html" class="button">Login</a>
+                        <a href="#" class="button">Carrinho</a>
+                    </div>
+                </div>
+                <div class="menu-hamburguer">
+                    <img src="Imagens/menu-icon.png" width="50px">
                 </div>
             </div>
-            <!--<img src="Imagens/Fundo.png" alt="" width="2000px" height="1000px" style="margin-left: -10px; margin-top: -10px; display: block;">-->
-            <div class="box">
-                <h1>Bem vindo ao nosso site!</h1>
-            </div>
         </div>
+        <!--<img src="Imagens/Fundo.png" alt="" width="2000px" height="1000px" style="margin-left: -10px; margin-top: -10px; display: block;">-->
+        <div class="box">
+            <h1>Bem vindo ao nosso site!</h1>
+        </div>
+    </div>
 
-        <h2 class="fade-in-text; tag">Nossos produtos</h2>
-        <div class="comercio">
+    <h2 class="fade-in-text; tag">Nossos produtos</h2>
+    <div class="comercio">
         <div class="tag" id="produtos">
             <img src="Imagens/Caderno.jpeg" alt="">
             <p>Caderno modelo 1</p>
@@ -40,23 +47,24 @@
             <a href="#" class="button">Comprar</a>
         </div>
 
-            <div class="tag" id="produtos">
-                <img src="Imagens/Caderno.jpeg" alt="">
-                <p>Caderno modelo 2</p>
-                <p class="preco">R$20,00</p>
-                <a href="#" class="button">Comprar</a>
-                </div>
-                <div class="tag" id="produtos">
-                <img src="Imagens/Caderno.jpeg"  alt="">
-                <p>Caderno modelo 3</p>
-                <p class="preco">R$20,00</p>
-                <a href="#" class="button">Comprar</a>
-            </div>
+        <div class="tag" id="produtos">
+            <img src="Imagens/Caderno.jpeg" alt="">
+            <p>Caderno modelo 2</p>
+            <p class="preco">R$20,00</p>
+            <a href="#" class="button">Comprar</a>
         </div>
-        <div class="baixo"><img src="Imagens/LogoInsta.png" alt="Logo Instagram" width="80px" height="80px">@Ecoline.ltda</div>
-        
-        <script>
-        $(document).on("scroll", function() {
+        <div class="tag" id="produtos">
+            <img src="Imagens/Caderno.jpeg" alt="">
+            <p>Caderno modelo 3</p>
+            <p class="preco">R$20,00</p>
+            <a href="#" class="button">Comprar</a>
+        </div>
+    </div>
+    <div class="baixo"><img src="Imagens/LogoInsta.png" alt="Logo Instagram" width="80px" height="80px">@Ecoline.ltda
+    </div>
+
+    <script>
+        $(document).on("scroll", function () {
             var pageTop = $(document).scrollTop();
             var pageBottom = pageTop + $(window).height();
             var tags = $(".tag");
@@ -70,7 +78,11 @@
                 }
             }
         });
-        </script>
+        $(".menu-hamburguer").click(function () {
+            $(".menu").toggleClass("active");
+        });
+    </script>
     </div>
 </body>
+
 </html>

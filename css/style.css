@@ -13,6 +13,7 @@ body{
     background-color: #fcf1f5;
     font-family: 'Poppins', sans-serif;
 }
+
 /*Topo*/
 .topo{
   display: flex;
@@ -26,6 +27,7 @@ body{
   justify-content: space-between;
   align-items: center;
 }
+
 .topo nav a{
   color: white;
   font-style: normal;
@@ -39,13 +41,23 @@ nav{
   display: flex;
   min-width: 500px;
   justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.menu{
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu-hamburguer{
+  display: none;
 }
 
 /*Botões*/
 .button{
-  display: inline-flex;
   text-align: center;
-  align-items: end;
   justify-content: center;
   padding: 10px 20px;
   min-width: 120px;
@@ -130,7 +142,6 @@ p{
 .baixo{
   display: flex;
   height: 120px;
-  width: 2000px;
   top: 10px;
   left: 10px;
   align-items: center;
@@ -178,4 +189,23 @@ p{
 @media (max-width: 768px){
   .topo nav{ gap: 16px; }
   .container-botoes{ gap: 12px; }
+  .menu {
+    display: none;
+    position: fixed;
+    top: 120px;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    background: white;
+  }
+  .menu.active {
+    display: block;
+  }
+  .menu nav {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .menu-hamburguer {
+    display: block;
+  }
 }
