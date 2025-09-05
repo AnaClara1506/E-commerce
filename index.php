@@ -11,21 +11,27 @@
 </head>
 
 <body>
+    <?php session_start(); ?>
     <div class="container">
         <div class="container-imagem">
             <div class="topo">
                 <img src="Imagens/Logotipo.png" alt="Logotipo" width="100px" class="logo">
                 <div class="menu">
                     <nav>
-                        <a href="Sobre.html">Sobre</a>
+                        <a href="Sobre.php">Sobre</a>
                         <a href="produtos.html">Produtos</a>
-                        <a href="index.html">Home</a>
+                        <a href="index.php">Home</a>
                     </nav>
                     <div class="container-botoes">
-                        <a href="login.html" class="button">Login</a>
-                        <a href="#" class="button" id="so-logado">Minha Conta</a>
-                        <a href="#" class="button" id="so-logado">Carrinho</a>
-
+                        <?php
+                            if(isset($_SESSION['sessaoConectado']) && $_SESSION['sessaoConectado'] == true){ 
+                                echo "<a href='#' class='button' id='so-logado'>Minha Conta</a>";
+                                echo "<a href='#' class='button' id='so-logado'>Carrinho</a>";
+                            }
+                            else {
+                                echo "<a href='login.html' class='button'>Login</a>";
+                            }
+                        ?>
                     </div>
                 </div>
                 <div class="menu-hamburguer">
@@ -58,7 +64,14 @@
                 <a href="produtos.html" class="button">Ver produto</a>
             </div>
         </div>
-        <div class="baixo"><img src="Imagens/LogoInsta.png" alt="Logo Instagram" width="50px">@Ecoline.ltda</div>
+        <div class="baixo">
+            <img src="Imagens/LogoInsta.png" alt="Logo Instagram" width="50px">@Ecoline.ltda</div>
+
+        <footer>
+            <div class="rodape">
+                
+            </div>
+        </footer>
     </div>
 
     <script>
