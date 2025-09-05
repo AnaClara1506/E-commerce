@@ -70,12 +70,15 @@ nav{
   text-decoration: none;
   transition: transform .3s ease, box-shadow .3s ease;
   position: static;
-  
 }
 
 .button:hover {
   transform: scale(1.05);
   box-shadow: 10px 10px 30px #173b0c;
+}
+
+#so-logado{
+  display: none;
 }
 
 /*Informações*/
