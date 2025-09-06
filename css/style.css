@@ -35,7 +35,12 @@ body {
   font-size: 20px;
   text-decoration: none;
   top: 20px;
-  text-shadow: 0 0 4px rgb(0, 0, 0);
+  text-shadow: 0 0 4px black;
+}
+
+.topo nav a:hover{
+  font-size: 25px;
+  text-shadow: 0 0 8px black;
 }
 
 nav {
@@ -54,6 +59,16 @@ nav {
 }
 .menu-hamburguer {
   display: none;
+}
+
+/* Rodapé*/
+.baixo {
+  display: flex;
+  height: 120px;
+  top: 10px;
+  left: 10px;
+  align-items: center;
+  font-size: 20px;
 }
 
 /*Botões*/
@@ -80,10 +95,6 @@ nav {
   box-shadow: 10px 10px 30px #173b0c;
 }
 
-#so-logado {
-  display: none;
-}
-
 /*Informações*/
 h1 {
   font-size: 60px;
@@ -107,17 +118,13 @@ p {
   text-align: center;
 }
 
-.tag {
-  opacity: 0;
-  transform: translate(0, 10vh);
-  transition: all 1s;
+article {
+  margin: 30px 30px;
+  text-align: justify;
 }
 
-.tag.visible {
-  opacity: 1;
-  transform: translate(0, 0);
-}
 
+/*Produtos - index*/
 #produtos {
   display: flex;
   flex-direction: column;
@@ -147,22 +154,32 @@ p {
   align-items: center;
 }
 
-.baixo {
-  display: flex;
-  height: 120px;
-  top: 10px;
-  left: 10px;
-  align-items: center;
-  font-size: 20px;
-}
-
 .preco {
   font-size: 25px;
 }
 
-article {
-  margin: 30px 30px;
-  text-align: justify;
+.tag {
+  opacity: 0;
+  transform: translate(0, 10vh);
+  transition: all 1s;
+}
+
+.tag.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/*Integrantes - Sobre*/
+.integrantes{
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.integrantes img{
+  border-radius: 20px;
+  width: 200px;
 }
 
 /*Animações*/
@@ -173,6 +190,8 @@ article {
   -o-animation: fadeIn 3s;
   -ms-animation: fadeIn 3s;
 }
+
+
 @keyframes fadeIn {
   0% {
     opacity: 0;

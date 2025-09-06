@@ -22,8 +22,8 @@
             <div class="container-botoes">
               <?php
                 if(isset($_SESSION['sessaoConectado']) && $_SESSION['sessaoConectado'] == true){ 
-                  echo "<a href='#' class='button' id='so-logado'>Minha Conta</a>";
-                  echo "<a href='#' class='button' id='so-logado'>Carrinho</a>";
+                  echo "<a href='#' class='button'>Minha Conta</a>";
+                  echo "<a href='#' class='button'>Carrinho</a>";
                 }
                 else {
                   echo "<a href='login.html' class='button'>Login</a>";
@@ -46,6 +46,13 @@
           escreve suas ideias enquanto cuida do planeta.
         </h3>
       </article>
+      <div class="integrantes">
+        <img src="Imagens/AnaClara.jpg" alt="Ana Clara" width="200px" class="fade-in-text">
+        <img src="Imagens/Eshley.jpg" alt="Eshley" width="200px" class="fade-in-text">
+        <img src="Imagens/Gabriel.jpg" alt="Gabriel" width="200px" class="fade-in-text">
+        <img src="Imagens/Guilherme.jpg" alt="Guilherme" width="200px" class="fade-in-text">
+        <img src="Imagens/Sophia.jpg" alt="Sophia" width="200px" class="fade-in-text">
+      </div>
     </div>
 
     <script>

@@ -25,8 +25,8 @@
                     <div class="container-botoes">
                         <?php
                             if(isset($_SESSION['sessaoConectado']) && $_SESSION['sessaoConectado'] == true){ 
-                                echo "<a href='#' class='button' id='so-logado'>Minha Conta</a>";
-                                echo "<a href='#' class='button' id='so-logado'>Carrinho</a>";
+                                echo "<a href='#' class='button'>Minha Conta</a>";
+                                echo "<a href='#' class='button'>Carrinho</a>";
                             }
                             else {
                                 echo "<a href='login.html' class='button'>Login</a>";
@@ -39,7 +39,7 @@
                 </div>
             </div>
         </div>
-        <div class="box">
+        <div class="box; fade-in-text">
             <h1>Bem vindo ao nosso site!</h1>
         </div>
         <h2 class="fade-in-text; tag">Nossos produtos</h2><br><br>
