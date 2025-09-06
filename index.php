@@ -20,7 +20,7 @@
                     <nav>
                         <a href="Sobre.php">Sobre</a>
                         <a href="produtos.php">Produtos</a>
-                        <a href="index.php">Home</a>
+                        <a href="index.php" id="selecionado">Home</a>
                     </nav>
                     <div class="container-botoes">
                         <?php
@@ -29,7 +29,13 @@
                                 echo "<a href='#' class='button'>Carrinho</a>";
                             }
                             else {
-                                echo "<a href='login.html' class='button'>Login</a>";
+                                echo "<a class='button' id='login'>Login</a>";
+                                echo "<div class='menu-login'>
+                                        <div class='flex-login'>
+                                            <a href='login.html'>Entrar</a>
+                                            <a href='#'>Cadastrar</a>
+                                        </div>
+                                    </div>";
                             }
                         ?>
                     </div>
@@ -48,20 +54,20 @@
                 <img src="Imagens/caderno_modelo1.jpg" alt="">
                 <p>Caderno modelo 1</p>
                 <p class="preco">R$20,00</p><br>
-                <a href="produtos.html" class="button">Ver produto</a>
+                <a href="produtos.php" class="button">Ver produto</a>
             </div>
 
             <div class="tag" id="produtos">
                 <img src="Imagens/caderno_modelo2.jpg" alt="">
                 <p>Caderno modelo 2</p>
                 <p class="preco">R$20,00</p><br>
-                <a href="produtos.html" class="button">Ver produto</a>
+                <a href="produtos.php" class="button">Ver produto</a>
             </div>
             <div class="tag" id="produtos">
                 <img src="Imagens/caderno_modelo3.jpg" alt="">
                 <p>Caderno modelo 3</p>
                 <p class="preco">R$20,00</p><br>
-                <a href="produtos.html" class="button">Ver produto</a>
+                <a href="produtos.php" class="button">Ver produto</a>
             </div>
         </div>
         <div class="baixo">
@@ -91,6 +97,9 @@
         });
         $(".menu-hamburguer").click(function () {
             $(".menu").toggleClass("active");
+        });
+        $("#login").click(function () {
+            $(".menu-login").toggleClass("active");
         });
     </script>
     </div>

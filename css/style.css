@@ -29,7 +29,7 @@ body {
   align-items: center;
 }
 
-.topo nav a {
+.topo nav a, .menu-login a {
   color: white;
   font-style: normal;
   font-size: 20px;
@@ -38,7 +38,7 @@ body {
   text-shadow: 0 0 4px black;
 }
 
-.topo nav a:hover{
+.topo nav a:hover, #selecionado{
   font-size: 25px;
   text-shadow: 0 0 8px black;
 }
@@ -57,8 +57,30 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
+
 .menu-hamburguer {
   display: none;
+}
+
+.menu-login{
+  display: none;
+  position: absolute;
+  top: 120px;
+  right: 0;
+  width: 200px;
+  background-color: #77b664e0;
+  z-index: 1000;
+  padding: 20px 20px;
+}
+.flex-login{
+  display:flex;
+  justify-content: top;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+.menu-login.active {
+    display: block;
 }
 
 /* Rodapé*/
@@ -249,11 +271,10 @@ article {
   }
   .menu {
     display: none;
-    position: fixed;
+    position: absolute;
     top: 120px;
-    bottom: 0;
     right: 0;
-    width: 400px;
+    width: 300px;
     background-color: #77b664e0;
     z-index: 1000;
     padding: 50px 50px;

@@ -19,7 +19,7 @@
                 <div class="menu">
                     <nav>
                         <a href="Sobre.php">Sobre</a>
-                        <a href="produtos.php">Produtos</a>
+                        <a href="produtos.php" id="selecionado">Produtos</a>
                         <a href="index.php">Home</a>
                     </nav>
                     <div class="container-botoes">
@@ -29,7 +29,13 @@
                                 echo "<a href='#' class='button'>Carrinho</a>";
                             }
                             else {
-                                echo "<a href='login.html' class='button'>Login</a>";
+                                echo "<a class='button' id='login'>Login</a>";
+                                echo "<div class='menu-login'>
+                                        <div class='flex-login'>
+                                            <a href='login.html'>Entrar</a>
+                                            <a href='#'>Cadastrar</a>
+                                        </div>
+                                    </div>";
                             }
                         ?>
                     </div>
@@ -57,6 +63,9 @@
         });
         $(".menu-hamburguer").click(function () {
             $(".menu").toggleClass("active");
+        });
+        $("#login").click(function () {
+            $(".menu-login").toggleClass("active");
         });
     </script>
     </div>

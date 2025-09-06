@@ -15,7 +15,7 @@
           <img src="Imagens/Logotipo.png" alt="Logotipo" width="100px" class="logo" />
           <div class="menu">
             <nav>
-              <a href="Sobre.php">Sobre</a>
+              <a href="Sobre.php" id="selecionado">Sobre</a>
               <a href="produtos.php">Produtos</a>
               <a href="index.php">Home</a>
             </nav>
@@ -26,7 +26,13 @@
                   echo "<a href='#' class='button'>Carrinho</a>";
                 }
                 else {
-                  echo "<a href='login.html' class='button'>Login</a>";
+                  echo "<a class='button' id='login'>Login</a>";
+                  echo "<div class='menu-login'>
+                          <div class='flex-login'>
+                            <a href='login.html'>Entrar</a>
+                            <a href='#'>Cadastrar</a>
+                          </div>
+                        </div>";
                 }
               ?>
             </div>
@@ -91,6 +97,9 @@
       });
       $(".menu-hamburguer").click(function () {
         $(".menu").toggleClass("active");
+      });
+      $("#login").click(function () {
+            $(".menu-login").toggleClass("active");
       });
     </script>
   </body>
