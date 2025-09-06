@@ -19,7 +19,7 @@
                 <div class="menu">
                     <nav>
                         <a href="Sobre.php">Sobre</a>
-                        <a href="produtos.html">Produtos</a>
+                        <a href="produtos.php">Produtos</a>
                         <a href="index.php">Home</a>
                     </nav>
                     <div class="container-botoes">

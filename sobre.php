@@ -16,7 +16,7 @@
           <div class="menu">
             <nav>
               <a href="Sobre.php">Sobre</a>
-              <a href="produtos.html">Produtos</a>
+              <a href="produtos.php">Produtos</a>
               <a href="index.php">Home</a>
             </nav>
             <div class="container-botoes">
@@ -47,11 +47,30 @@
         </h3>
       </article>
       <div class="integrantes">
-        <img src="Imagens/AnaClara.jpg" alt="Ana Clara" width="200px" class="fade-in-text">
-        <img src="Imagens/Eshley.jpg" alt="Eshley" width="200px" class="fade-in-text">
-        <img src="Imagens/Gabriel.jpg" alt="Gabriel" width="200px" class="fade-in-text">
-        <img src="Imagens/Guilherme.jpg" alt="Guilherme" width="200px" class="fade-in-text">
-        <img src="Imagens/Sophia.jpg" alt="Sophia" width="200px" class="fade-in-text">
+        <figure>
+          <img src="Imagens/AnaClara.jpg" alt="Ana Clara" class="fade-in-text"> 
+          <figcaption>Ana Clara</figcaption>
+        </figure>
+        <figure>
+          <img src="Imagens/Eshley.jpg" alt="Eshley" class="fade-in-text"> 
+          <figcaption>Eshley</figcaption>
+        </figure>
+        <figure>
+          <img src="Imagens/Gabriel.jpg" alt="Gabriel" class="fade-in-text">
+          <figcaption>Gabriel</figcaption>
+        </figure>
+        <figure>
+          <img src="Imagens/Guilherme.jpg" alt="Guilherme" class="fade-in-text">
+          <figcaption>Guilherme</figcaption>
+        </figure>
+        <figure>
+          <img src="Imagens/Sophia.jpg" alt="Maria Luiza" class="fade-in-text">
+          <figcaption>Maria Luiza</figcaption>
+        </figure>
+        <figure>
+          <img src="Imagens/Sophia.jpg" alt="Sophia" class="fade-in-text">
+          <figcaption>Sophia</figcaption>
+        </figure>
       </div>
     </div>
 
