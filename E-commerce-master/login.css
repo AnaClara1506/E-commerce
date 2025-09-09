@@ -1,0 +1,71 @@
+
+.button{
+    display: inline-block;
+    width: 70%;           
+    max-width: 160px;
+    color: rgb(255, 255, 255);
+    background-color:  #d4377e;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px auto;
+    padding: 12px 0;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+.button:hover{
+    transform: scale(1.05);
+    box-shadow: 10px 10px 30px rgba(8, 69, 8, 0.3);
+}
+
+.box{
+    text-align: center;
+    width: 90%;
+    padding-bottom: 20px;
+    max-width: 550px;
+    height: auto;
+    margin: 50px auto 100px;;
+    margin-top: 5%;
+    justify-content: center;
+    font-size: 20px;
+    align-items: center;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    background-color: #f1e7d5;
+  }
+
+.textbox{
+    cursor: text;
+    text-align: center;
+    border-radius: 50px;
+    width: 90%; 
+    max-width: 500px;
+    height: 40px;
+    margin: 20px;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #fcf1f5;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("Imagens/Painel\ Ecoline.png");
+}
+
+h1{
+    font-family: 'Poppins' sans-serif;
+    font-size: 35px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 5px black;
+}
+
+a{
+  color: white;
+  font-style: normal;
+  font-size: 15px;    
+  text-decoration: none;
+  top: 20px;
+  text-shadow: 0 0 4px rgb(0, 0, 0);
+}

@@ -1,0 +1,298 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container-imagem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+body {
+  color: #173b0c;
+  background-color: #fcf1f5;
+  font-family: "Poppins", sans-serif;
+}
+
+/*Topo*/
+.topo {
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  padding: 0 24px;
+  gap: 24px;
+  background-color: #77b664e0;
+  box-shadow: 0 0 2px black;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topo nav a, .menu-login a {
+  color: white;
+  font-style: normal;
+  font-size: 20px;
+  text-decoration: none;
+  top: 20px;
+  text-shadow: 0 0 4px black;
+}
+
+.topo nav a:hover, #selecionado{
+  font-size: 25px;
+  text-shadow: 0 0 8px black;
+}
+
+nav {
+  display: flex;
+  min-width: 500px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.menu {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-hamburguer {
+  display: none;
+}
+
+.menu-login{
+  display: none;
+  position: absolute;
+  top: 120px;
+  right: 0;
+  width: 200px;
+  background-color: #77b664e0;
+  z-index: 1000;
+  padding: 20px 20px;
+}
+
+.flex-login{
+  display:flex;
+  justify-content: top;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+.menu-login.active {
+    display: block;
+}
+
+/* Rodapé*/
+.baixo {
+  display: flex;
+  height: 120px;
+  top: 10px;
+  left: 10px;
+  align-items: center;
+  font-size: 20px;
+}
+
+/*Botões*/
+
+.button {
+  text-align: center;
+  justify-content: center;
+  padding: 10px 20px;
+  min-width: 120px;
+  color: white;
+  background: #d4377e;
+  border-radius: 999px;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: static;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  box-shadow: 10px 10px 30px #173b0c;
+}
+
+/*Informações*/
+h1 {
+  font-size: 60px;
+  text-align: center;
+  justify-content: center;
+  color: #1d510d;
+  text-shadow: 0 0 5px rgb(0, 0, 0);
+}
+h2 {
+  text-align: center;
+  justify-content: center;
+  color: #1d510d;
+  text-shadow: 0 0 5px rgb(0, 0, 0);
+  font-size: 30px;
+}
+
+p {
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 5px rgb(0, 0, 0);
+  justify-content: center;
+  text-align: center;
+}
+
+article {
+  margin: 30px 30px;
+  text-align: justify;
+}
+
+
+/*Produtos - index*/
+#produtos {
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  width: 400px;
+  background-color: #ee9ec2;
+  overflow: hidden;
+  box-shadow: 0 0 5px black;
+}
+
+#produtos:hover {
+  transform: scale(1.05);
+  box-shadow: 10px 10px 30px #1d510d;
+}
+
+#produtos img {
+  width: 400px;
+  height: 250px;
+}
+
+.comercio {
+  display: flex;
+  flex-direction: row;
+  margin-right: 80px;
+  margin-left: 80px;
+  align-items: center;
+  gap: 30px;
+}
+
+.preco {
+  font-size: 25px;
+}
+
+.tag {
+  opacity: 0;
+  transform: translate(0, 10vh);
+  transition: all 1s;
+}
+
+.tag.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/*Integrantes - Sobre*/
+.integrantes{
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.integrantes figure img{
+  border-radius: 20px;
+  width: 175px;
+}
+.integrantes figure figcaption{
+  text-align: center;
+  font-size: 80%;
+}
+
+/*Animações*/
+.fade-in-text {
+  animation: fadeIn 3s;
+  -webkit-animation: fadeIn 3s;
+  -moz-animation: fadeIn 3s;
+  -o-animation: fadeIn 3s;
+  -ms-animation: fadeIn 3s;
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*Responsividade*/
+@media (max-width: 900px) {
+  nav {
+    min-width: 200px;
+  }
+  .menu {
+    display: none;
+    position: absolute;
+    top: 120px;
+    right: 0;
+    width: 300px;
+    background-color: #77b664e0;
+    z-index: 1000;
+    padding: 50px 50px;
+  }
+  .menu.active {
+    display: block;
+  }
+  .menu nav {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+  .menu-hamburguer {
+    display: block;
+  }
+  .comercio, .integrantes {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
