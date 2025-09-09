@@ -38,19 +38,26 @@
 .textbox{
     cursor: text;
     text-align: center;
+    outline: none;
     border-radius: 50px;
     width: 90%; 
     max-width: 500px;
     height: 40px;
     margin: 20px;
+    border-width: 3px;
+}
+
+.textbox:focus{
+  border-color: #d4377e;
+  transform: scale(1.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 body{
     font-family: 'Poppins', sans-serif;
-    background-color: #fcf1f5;
     background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url("Imagens/Painel\ Ecoline.png");
+    background-repeat: repeat;
+    background-image: url("../Imagens/Painel Ecoline.png");
 }
 
 h1{

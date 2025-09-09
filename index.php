@@ -47,6 +47,13 @@
         </div>
         <div class="box; fade-in-text">
             <h1>Bem vindo ao nosso site!</h1>
+            <article>
+                <h3 class="fade-in-text">
+                    Oferecemos cadernos de qualidade, feitos à mão, estilizados e personalizados para nossos clientes.
+                    Todos os produtos foram projetados pensando de forma sustentável para a venda, auxiliando no cotidianos de quem 
+                    os utiliza de forma ecológica.
+                </h3>
+            </article>
         </div>
         <h2 class="fade-in-text; tag">Nossos produtos</h2><br><br>
         <div class="comercio">
@@ -70,30 +77,28 @@
                 <a href="produtos.php" class="button">Ver produto</a>
             </div>
         </div>
-        <div class="baixo">
-            <img src="Imagens/LogoInsta.png" alt="Logo Instagram" width="50px">@Ecoline.ltda</div>
-
+        <br><br><br>
         <footer>
             <div class="rodape">
-                
+                <div class="instagram">
+                    <h3>Siga-nos</h3>
+                    <img src="Imagens/LogoInsta.png" alt="Logo Instagram" width="50px">@Ecoline.ltda</div>
+                </div>
+                <div class="contato">
+                    <h3>Telefone para contato</h3>
+                    <h3>Email para contato</h3>
+                </div>
+                <div class="patrocinio">
+                    <h3>Patrocinadores</h3>
+                </div>
+                @Feito por Ecoline.ltda
             </div>
         </footer>
     </div>
 
     <script>
-        $(document).on("scroll", function () {
-            var pageTop = $(document).scrollTop();
-            var pageBottom = pageTop + $(window).height();
-            var tags = $(".tag");
-
-            for (var i = 0; i < tags.length; i++) {
-                var tag = tags[i];
-                if ($(tag).position().top < pageBottom) {
-                    $(tag).addClass("visible");
-                } else {
-                    $(tag).removeClass("visible");
-                }
-            }
+        $(document).ready(function () {
+            $(".tag").addClass("visible");
         });
         $(".menu-hamburguer").click(function () {
             $(".menu").toggleClass("active");
