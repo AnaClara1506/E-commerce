@@ -30,7 +30,7 @@
                   echo "<div class='menu-login'>
                           <div class='flex-login'>
                             <a href='login.html'>Entrar</a>
-                            <a href='#'>Cadastrar</a>
+                            <a href='cadastrar.html'>Cadastrar</a>
                           </div>
                         </div>";
                 }

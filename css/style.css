@@ -266,6 +266,12 @@ article {
 
 /*Responsividade*/
 @media (max-width: 900px) {
+  h1{
+    font-size: 40px;
+  }
+  h2{
+    font-size: 20px;
+  }
   nav {
     min-width: 200px;
   }
