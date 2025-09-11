@@ -18,9 +18,9 @@
                 <img src="Imagens/Logotipo.png" alt="Logotipo" width="100px" class="logo">
                 <div class="menu">
                     <nav>
+                        <a href="index.php" id="selecionado">Home</a>
                         <a href="Sobre.php">Sobre</a>
                         <a href="produtos.php">Produtos</a>
-                        <a href="index.php" id="selecionado">Home</a>
                     </nav>
                     <div class="container-botoes">
                         <?php
