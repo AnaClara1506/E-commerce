@@ -15,9 +15,9 @@
           <img src="Imagens/Logotipo.png" alt="Logotipo" width="100px" class="logo" />
           <div class="menu">
             <nav>
+              <a href="index.php">Home</a>
               <a href="Sobre.php" id="selecionado">Sobre</a>
               <a href="produtos.php">Produtos</a>
-              <a href="index.php">Home</a>
             </nav>
             <div class="container-botoes">
               <?php
@@ -29,8 +29,8 @@
                   echo "<a class='button' id='login'>Login</a>";
                   echo "<div class='menu-login'>
                           <div class='flex-login'>
-                            <a href='login.html'>Entrar</a>
-                            <a href='cadastrar.html'>Cadastrar</a>
+                            <a href='login.php'>Entrar</a>
+                            <a href='cadastrar.php'>Cadastrar</a>
                           </div>
                         </div>";
                 }
@@ -42,7 +42,9 @@
           </div>
         </div>
       </div>
+      <br>
       <h1 class="fade-in-text">Sobre a nossa empresa</h1>
+      <br>
       <article>
         <h3 class="fade-in-text">
           Ecoline é uma empresa dedicada à produção e venda de cadernos
@@ -52,6 +54,7 @@
           escreve suas ideias enquanto cuida do planeta.
         </h3>
       </article>
+      <br>
       <div class="integrantes">
         <figure>
           <img src="Imagens/AnaClara.jpg" alt="Ana Clara" class="fade-in-text"> 

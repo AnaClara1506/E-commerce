@@ -18,9 +18,9 @@
                 <img src="Imagens/Logotipo.png" alt="Logotipo" width="100px" class="logo">
                 <div class="menu">
                     <nav>
+                        <a href="index.php">Home</a>
                         <a href="Sobre.php">Sobre</a>
                         <a href="produtos.php" id="selecionado">Produtos</a>
-                        <a href="index.php">Home</a>
                     </nav>
                     <div class="container-botoes">
                         <?php
@@ -32,8 +32,8 @@
                                 echo "<a class='button' id='login'>Login</a>";
                                 echo "<div class='menu-login'>
                                         <div class='flex-login'>
-                                            <a href='login.html'>Entrar</a>
-                                            <a href='cadastrar.html'>Cadastrar</a>
+                                            <a href='login.php'>Entrar</a>
+                                            <a href='cadastr.php'>Cadastrar</a>
                                         </div>
                                     </div>";
                             }
@@ -43,6 +43,45 @@
                 <div class="menu-hamburguer">
                     <img src="Imagens/menu-icon.png" width="50px">
                 </div>
+            </div>
+        </div>
+        <br><h1>Conheça nossos produtos!</h1>
+        <div class="imagem-produtos">
+        <figure>
+          <img src="Imagens/caderno_modelo2.jpg" alt="Caderno" class="fade-in-text">
+          <figcaption>Cadernos EcoLine</figcaption>
+        </figure>
+        </div><br><br><br>
+        <div class ="container-produtos"></div>
+            <div class="container-textos">
+                <h2 class="texto">Modelo 1</h2>
+                <h2 class="texto">Modelo 2</h2>
+                <h2 class="texto">Modelo 3</h2>
+            </div>
+            <div class="container-modelos">
+                <div class="imagem-menor">
+                    <figure>
+                    <img src="Imagens/caderno_modelo1.jpg" alt="Caderno 1" class="fade-in-text">
+                    <figcaption>Cadernos EcoLine</figcaption>
+                    </figure>
+                </div>
+                <div class="imagem-menor">
+                    <figure>
+                    <img src="Imagens/caderno_modelo2.jpg" alt="Caderno 2" class="fade-in-text">
+                    <figcaption>Cadernos EcoLine 2</figcaption>
+                    </figure>
+                </div>
+                <div class="imagem-menor">
+                    <figure>
+                    <img src="Imagens/caderno_modelo3.jpg" alt="Caderno 3" class="fade-in-text">
+                    <figcaption>Cadernos EcoLine 3</figcaption>
+                    </figure>
+                </div>
+            </div>
+            <div class ="button-produtos">
+                <a href='#' class='button'>Adicionar ao Carrinho</a>
+                <a href='#' class='button'>Adicionar ao Carrinho</a>
+                <a href='#' class='button'>Adicionar ao Carrinho</a>
             </div>
         </div>
     </div>

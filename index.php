@@ -32,8 +32,8 @@
                                 echo "<a class='button' id='login'>Login</a>";
                                 echo "<div class='menu-login'>
                                         <div class='flex-login'>
-                                            <a href='login.html'>Entrar</a>
-                                            <a href='cadastrar.html'>Cadastrar</a>
+                                            <a href='login.php'>Entrar</a>
+                                            <a href='cadastrar.php'>Cadastrar</a>
                                         </div>
                                     </div>";
                             }
@@ -45,15 +45,18 @@
                 </div>
             </div>
         </div>
-        <div class="box; fade-in-text">
+        <div class="fade-in-text">
+            <br>
             <h1>Bem vindo ao nosso site!</h1>
+            <br>
             <article>
                 <h3 class="fade-in-text">
-                    Oferecemos cadernos de qualidade, feitos à mão, estilizados e personalizados para nossos clientes.
-                    Todos os produtos foram projetados pensando de forma sustentável para a venda, auxiliando no cotidianos de quem 
-                    os utiliza de forma ecológica.
+                    Aqui você encontra produtos sustentáveis para o seu dia a dia! Nossos cadernos ecológicos são todos feitos à mão, 
+                    com qualidade e excelência para nossos clientes. Eles foram estilizados e projetados de forma renovável para a venda,
+                    com o objetivo de auxiliar no desenvolvimento de um cotidiano sustentável, onde você cria sem danificar o meio ambiente.
                 </h3>
             </article>
+            <br>
         </div>
         <h2 class="fade-in-text; tag">Nossos produtos</h2><br><br>
         <div class="comercio">
