@@ -8,43 +8,12 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <?php session_start(); ?>
+    <?php include 'cabecalho.php' ?>
 </head>
 
 <body>
-    <?php session_start(); ?>
     <div class="container">
-        <div class="container-imagem">
-            <div class="topo">
-                <img src="Imagens/Logotipo.png" alt="Logotipo" width="100px" class="logo">
-                <div class="menu">
-                    <nav>
-                        <a href="index.php">Home</a>
-                        <a href="Sobre.php">Sobre</a>
-                        <a href="produtos.php" id="selecionado">Produtos</a>
-                    </nav>
-                    <div class="container-botoes">
-                        <?php
-                            if(isset($_SESSION['sessaoConectado']) && $_SESSION['sessaoConectado'] == true){ 
-                                echo "<a href='#' class='button'>Minha Conta</a>";
-                                echo "<a href='#' class='button'>Carrinho</a>";
-                            }
-                            else {
-                                echo "<a class='button' id='login'>Login</a>";
-                                echo "<div class='menu-login'>
-                                        <div class='flex-login'>
-                                            <a href='login.php'>Entrar</a>
-                                            <a href='cadastr.php'>Cadastrar</a>
-                                        </div>
-                                    </div>";
-                            }
-                        ?>
-                    </div>
-                </div>
-                <div class="menu-hamburguer">
-                    <img src="Imagens/menu-icon.png" width="50px">
-                </div>
-            </div>
-        </div>
         <br><h1>Conheça nossos produtos!</h1>
         <div class="imagem-produtos">
         <figure>
@@ -84,6 +53,8 @@
                 <a href='#' class='button'>Adicionar ao Carrinho</a>
             </div>
         </div>
+        <br><br>
+        <?php include("rodape.php") ?>
     </div>
     <script>
         $(document).on("scroll", function () {
@@ -100,14 +71,7 @@
                 }
             }
         });
-        $(".menu-hamburguer").click(function () {
-            $(".menu").toggleClass("active");
-        });
-        $("#login").click(function () {
-            $(".menu-login").toggleClass("active");
-        });
     </script>
-    </div>
 </body>
 
 </html>

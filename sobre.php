@@ -7,41 +7,11 @@
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+    <?php session_start(); ?>
+    <?php include 'cabecalho.php' ?>
   </head>
   <body>
     <div class="container">
-      <div class="container-imagem">
-        <div class="topo">
-          <img src="Imagens/Logotipo.png" alt="Logotipo" width="100px" class="logo" />
-          <div class="menu">
-            <nav>
-              <a href="index.php">Home</a>
-              <a href="Sobre.php" id="selecionado">Sobre</a>
-              <a href="produtos.php">Produtos</a>
-            </nav>
-            <div class="container-botoes">
-              <?php
-                if(isset($_SESSION['sessaoConectado']) && $_SESSION['sessaoConectado'] == true){ 
-                  echo "<a href='#' class='button'>Minha Conta</a>";
-                  echo "<a href='#' class='button'>Carrinho</a>";
-                }
-                else {
-                  echo "<a class='button' id='login'>Login</a>";
-                  echo "<div class='menu-login'>
-                          <div class='flex-login'>
-                            <a href='login.php'>Entrar</a>
-                            <a href='cadastrar.php'>Cadastrar</a>
-                          </div>
-                        </div>";
-                }
-              ?>
-            </div>
-          </div>
-          <div class="menu-hamburguer">
-            <img src="Imagens/menu-icon.png" width="50px" />
-          </div>
-        </div>
-      </div>
       <br>
       <h1 class="fade-in-text">Sobre a nossa empresa</h1>
       <br>
@@ -81,6 +51,8 @@
           <figcaption>Sophia</figcaption>
         </figure>
       </div>
+      <br><br>
+      <?php include("rodape.php") ?>
     </div>
 
     <script>
@@ -97,12 +69,6 @@
             $(tag).removeClass("visible");
           }
         }
-      });
-      $(".menu-hamburguer").click(function () {
-        $(".menu").toggleClass("active");
-      });
-      $("#login").click(function () {
-            $(".menu-login").toggleClass("active");
       });
     </script>
   </body>

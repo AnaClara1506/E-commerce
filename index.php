@@ -8,43 +8,12 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <?php session_start(); ?>
+    <?php include 'cabecalho.php' ?>
 </head>
 
 <body>
-    <?php session_start(); ?>
     <div class="container">
-        <div class="container-imagem">
-            <div class="topo">
-                <img src="Imagens/Logotipo.png" alt="Logotipo" width="100px" class="logo">
-                <div class="menu">
-                    <nav>
-                        <a href="index.php" id="selecionado">Home</a>
-                        <a href="Sobre.php">Sobre</a>
-                        <a href="produtos.php">Produtos</a>
-                    </nav>
-                    <div class="container-botoes">
-                        <?php
-                            if(isset($_SESSION['sessaoConectado']) && $_SESSION['sessaoConectado'] == true){ 
-                                echo "<a href='#' class='button'>Minha Conta</a>";
-                                echo "<a href='#' class='button'>Carrinho</a>";
-                            }
-                            else {
-                                echo "<a class='button' id='login'>Login</a>";
-                                echo "<div class='menu-login'>
-                                        <div class='flex-login'>
-                                            <a href='login.php'>Entrar</a>
-                                            <a href='cadastrar.php'>Cadastrar</a>
-                                        </div>
-                                    </div>";
-                            }
-                        ?>
-                    </div>
-                </div>
-                <div class="menu-hamburguer">
-                    <img src="Imagens/menu-icon.png" width="50px">
-                </div>
-            </div>
-        </div>
         <div class="fade-in-text">
             <br>
             <h1>Bem vindo ao nosso site!</h1>
@@ -81,36 +50,13 @@
             </div>
         </div>
         <br><br><br>
-        <footer>
-            <div class="rodape">
-                <div class="instagram">
-                    <h3>Siga-nos</h3>
-                    <img src="Imagens/LogoInsta.png" alt="Logo Instagram" width="50px">@Ecoline.ltda</div>
-                </div>
-                <div class="contato">
-                    <h3>Telefone para contato</h3>
-                    <h3>Email para contato</h3>
-                </div>
-                <div class="patrocinio">
-                    <h3>Patrocinadores</h3>
-                </div>
-                @Feito por Ecoline.ltda
-            </div>
-        </footer>
+        <?php include("rodape.php") ?>
     </div>
-
     <script>
         $(document).ready(function () {
             $(".tag").addClass("visible");
         });
-        $(".menu-hamburguer").click(function () {
-            $(".menu").toggleClass("active");
-        });
-        $("#login").click(function () {
-            $(".menu-login").toggleClass("active");
-        });
     </script>
-    </div>
 </body>
 
 </html>

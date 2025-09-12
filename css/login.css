@@ -68,18 +68,26 @@ h1{
 }
 
 a{
-color: white;
-font-style: normal;
-font-size: 16px;    
-text-decoration: none;
-font-weight: bold;
-top: 20px;
-text-shadow: 0 0 4px rgb(0, 0, 0);
-transition: transform 0.3s ease, font-size 0.3s ease;
+  color: white;
+  font-style: normal;
+  font-size: 16px;    
+  text-decoration: none;
+  font-weight: bold;
+  top: 20px;
+  text-shadow: 0 0 4px rgb(0, 0, 0);
+  transition: transform 0.3s ease, font-size 0.3s ease;
 }
 
 a:hover {
-text-shadow: 0 0 8px black;
-transform: scale(1.1); 
-font-size: 18px;   
+  text-shadow: 0 0 8px black;
+  transform: scale(1.1); 
+  font-size: 18px;   
+}
+
+.login-invalido{
+  color: #1d510d;
+  font-size: 16px;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 2px rgb(0, 0, 0);
 }

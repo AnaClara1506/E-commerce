@@ -16,40 +16,46 @@
                     <a href="esqueciasenha.html">Esqueceu a senha?</a><br>
                     <input type="submit" class="button" value="Entrar"><br> 
                 </form>
-            </div>
+            <div class='login-invalido'>
     </body>
     <?php
-        session_start();
-        if( $_POST ){
-
+        if ( $_POST ) {
             include "util.php";
-
-            $conn = conecta();
+            session_start();
 
             $usuario = $_POST['usuario'];
-            $senha = $_POST['senha'];
+            $conn = conecta();
 
-            $select = $conn->prepare("SELECT nome, senha, admin FROM usuario WHERE (email = :usuario)");
+			$select = $conn->prepare("select nome,senha,admin 
+                                      from usuario 
+                                      where email=:usuario");
 
             $select->bindParam(":usuario",$usuario);
 
+
+            $senha   = $_POST['senha'];
+
             $select->execute();
-
             $linha = $select->fetch();
-
-            if( password_verify($usuario, $linha['senha']) ){
-                $_SESSION['sessaoConectado'] = true;
-                $_SESSION['login'] = $linha['nome'];
-                $_SESSION['admin'] = $linha['admin'];
-                header("location: index.php");
+            if($linha){
+                if ( password_verify($senha,$linha['senha']) ) {
+                    $_SESSION['statusConectado'] = true;
+                    $_SESSION['admin'] = $linha['admin'];
+                    $_SESSION['login'] = $linha['nome'];
+                    header("location: index.php");   
+                    echo "</div> </div>";
+                } else {
+                    $_SESSION['statusConectado'] = false;
+                    $_SESSION['admin'] = false;
+                    $_SESSION['login'] = "";
+                    echo "Senha Inválido! Redigite! </div></div>";
+                }         
             }
-
-            else{
-                $_SESSION['sessaoConectado'] = false;
-                $_SESSION['login'] = "";
-            }
-        }
-
+            else {
+                echo "Usuário não existe! <br>";
+                echo "<a href='cadastrar.php'>Clique aqui</a> para cadastrar-se!</div></div>";
+            }              
+        }       
     ?>
 
 </html>
