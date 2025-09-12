@@ -12,8 +12,15 @@
             <div class="menu">
                 <nav>
                         <a href="index.php">Home</a>
-                        <a href="Sobre.php">Sobre</a>
+                        <a href="sobre.php">Sobre</a>
                         <a href="produtos.php">Produtos</a>
+                        <?php 
+                            if(isset($_SESSION['statusConectado']) && $_SESSION['statusConectado'] == true){ 
+                                if($_SESSION['admin']){
+                                    echo "<a href='gerenciar.php'>Gerenciar</a>";
+                                }
+                            }
+                        ?>
                 </nav>
             </div>
             <div class="container-botoes">

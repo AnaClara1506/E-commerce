@@ -8,8 +8,9 @@
         <link rel="stylesheet" href="css/login.css">
     </head>
     <body>
-        <form action="insertUsuario.php" method="POST" class="box">
+        <form action="insertAdmin.php" method="POST" class="box">
             <h1>Realize seu cadastro</h1>
+            <h2>Administrador</h2>
             <p>Nome completo:</p>
             <input type="text" name="nome" class="textbox" placeholder="Insira o seu nome..." required>
             <p>Telefone:</p>

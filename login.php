@@ -11,7 +11,7 @@
             <div class="box">
                 <h1>Login do Usuário</h1>
                 <form action="" method="post">
-                    <input type="text" name='usuario' class="textbox" placeholder="Insira o seu nome...">
+                    <input type="email" name='usuario' class="textbox" placeholder="Insira o seu nome...">
                     <input type="password" name='senha' class="textbox" placeholder="Insira a sua senha...">
                     <a href="esqueciasenha.html">Esqueceu a senha?</a><br>
                     <input type="submit" class="button" value="Entrar"><br> 

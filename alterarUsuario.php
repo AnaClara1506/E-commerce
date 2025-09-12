@@ -1,46 +1,40 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
-        <title>CRUD usuários</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alterar Usuário</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/login.css">
     </head>
     <body>
-        <?php
+
+    <?php
             include "util.php";
             $conn = conecta();
             $id_usuario = $_GET['id_usuario']; 
-            $varSQL = "SELECT * FROM usuario WHERE id_usuario = :id_usuario";
-
+            $varSQL = "SELECT nome, email, telefone FROM usuario WHERE id_usuario = :id_usuario";
             $select = $conn->prepare($varSQL);
-            $select->bindParam(':id_usuario' ,$id_usuario);
+            $select->bindParam(':id_usuario', $id_usuario);
             $select->execute();
             $linha = $select->fetch(); 
 
             $nome = $linha['nome'];
-            $email = $linha['email'];
-            $senha = $linha['senha'];
-            $admin = $linha['admin'];
             $telefone = $linha['telefone'];
+            $email = $linha['email'];
         ?>
+
         
-        
-        <form action= 'updateUsuario.php' method='post'>
+        <form action="updateUsuario.php" method="POST" class="box">
+            <h1>Altere seu cadastro</h1>
             <input type='hidden' name='id_usuario' value='<?php echo $id_usuario; ?>'>
-            Nome<br>
-            <input type='text' name='nome'
-                value = '<?php echo $nome; ?>'><br><br>
-            Email<br>
-            <input type='text' name='email' 
-                value='<?php echo $email; ?>'><br><br>
-            Senha<br>
-            <input type='password' name='senha'
-                value='<?php echo $senha; ?>'><br><br>
-            Admin<br>
-            <input type='numeric' name='admin'
-                value='<?php echo $admin; ?>'><br><br>
-            Telefone<br>
-            <input type='numberic' name='telefone'
-                value='<?php echo $telefone; ?>'><br><br>
-            <button type='submit'>Alterar usuário</button>
+            <p>Nome completo:</p>
+            <input type="text" name="nome" class="textbox"  value = '<?php echo $nome; ?>' required>
+            <p>Telefone:</p>
+            <input type="text" name="telefone" class="textbox"  value = '<?php echo $telefone; ?>'required>
+            <p>Endereço de E-mail:</p>
+            <input type="email" name="email" class="textbox"  value = '<?php echo $email; ?>' required>
+            <input type="submit" class="button" value="Salvar Alterações">
         </form>
     </body>
 </html>

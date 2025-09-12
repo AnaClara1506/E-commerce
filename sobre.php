@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ecoline LTDA</title>
+    <title>Sobre Nós</title>
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
@@ -43,7 +43,7 @@
           <figcaption>Guilherme</figcaption>
         </figure>
         <figure>
-          <img src="Imagens/Sophia.jpg" alt="Maria Luiza" class="fade-in-text">
+          <img src="Imagens/MariaLuiza.jpg" alt="Maria Luiza" class="fade-in-text">
           <figcaption>Maria Luiza</figcaption>
         </figure>
         <figure>
