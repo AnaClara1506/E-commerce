@@ -1,24 +1,23 @@
 <?php
-include 'util.php';
-
-$conn = conecta();
-
-if (isset($_GET['id_usuario'])) {
+    session_start();
+    include "util.php";
+    $conn = conecta();
     $id_usuario = $_GET['id_usuario'];
+    $varSQL = "UPDATE usuario set
+                excluido = :excluido
+                WHERE id_usuario = :id_usuario";
+    $update = $conn->prepare($varSQL);
+    $excluido = 1;
+    $update->bindParam(":excluido", $excluido);
+    $update->bindParam(":id_usuario", $id_usuario);
 
-    $varSQL = "DELETE FROM usuario WHERE id_usuario = :id_usuario";
+    $update->execute();
 
-    $delete = $conn->prepare($varSQL);
-    $delete->bindParam(':id_usuario', $id_usuario);
-
-    if ($delete->execute()) {
-        echo "Usuário excluído com sucesso.<br>";
-    } else {
-        echo "Erro ao excluir o usuário.<br>";
+     if($id_usuario == $_SESSION['id_usuario']){
+        header('Location: logout.php');
     }
-} else {
-    echo "ID do usuário não informado.";
-}
+    else{
+        header('Location: crudUsuarios.php');
+    }
 
- header('Location: usuario.php');
 ?>

@@ -29,24 +29,24 @@
         </div>
         <h2 class="fade-in-text; tag">Nossos produtos</h2><br><br>
         <div class="comercio">
+            <?php 
+                include "util.php";
+                $conn = conecta();
+                $varSQL = "SELECT * FROM produto";
+                $select = $conn->prepare($varSQL);
+                $select->execute();
+                $linha = $select->fetch();
+            ?>
             <div class="tag" id="produtos">
-                <img src="Imagens/caderno_modelo1.jpg" alt="">
-                <p>Caderno modelo 1</p>
-                <p class="preco">R$20,00</p><br>
-                <a href="produtos.php" class="button">Ver produto</a>
-            </div>
-
-            <div class="tag" id="produtos">
-                <img src="Imagens/caderno_modelo2.jpg" alt="">
-                <p>Caderno modelo 2</p>
-                <p class="preco">R$20,00</p><br>
-                <a href="produtos.php" class="button">Ver produto</a>
-            </div>
-            <div class="tag" id="produtos">
-                <img src="Imagens/caderno_modelo3.jpg" alt="">
-                <p>Caderno modelo 3</p>
-                <p class="preco">R$20,00</p><br>
-                <a href="produtos.php" class="button">Ver produto</a>
+                <?php while ($linha = $select->fetch() ){
+                    $foto = "Imagens/c".$linha['id_produto'].".jpg";
+                    echo "<img src = '$foto'>";
+                    echo "<p>".$linha['nome']."</p>";
+                    echo "<p class='preco'>".$linha['valor_unitario']."</p><br>";
+                    echo "<a href='produtos.php' class='button'>Ver produto</a>";
+                    echo "</div>";
+                    }
+                ?>
             </div>
         </div>
         <br><br><br>

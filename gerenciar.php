@@ -19,8 +19,8 @@
             <h1>Bem vindo Administrador!</h1>
             <br>
             <div class='menu-crud'>
-                <a href='usuario.php' class="texto-crud">Crud Usuário</a><br><br>
-                <a href='produtos.php' class="texto-crud">Crud Produtos</a>
+                <a href='crudUsuarios.php' class="texto-crud">Crud Usuário</a><br><br>
+                <a href='crudProdutos.php' class="texto-crud">Crud Produtos</a>
             </div>
         </div>
         <br><br><br>

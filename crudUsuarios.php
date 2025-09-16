@@ -29,14 +29,16 @@
                 <th></th>
             </tr>
             <?php while ($linha = $select->fetch() ){ 
-                echo "<tr><td>".$linha['id_usuario']."</td>";
-                echo "<td>".$linha['nome']."</td>";
-                echo "<td>".$linha['email']."</td>";
-                echo "<td> Criptografia </td>";
-                echo "<td>".$linha['admin']."</td>";
-                echo "<td>".$linha['telefone']."</td>";
-                echo "<td><a href='alterarUsuario.php?id_usuario=".$linha['id_usuario']."'>Alterar</a></td>";
-                echo "<td><a href='excluirUsuario.php?id_usuario=".$linha['id_usuario']."'>Excluir</a></td></tr>";
+                if(!$linha['excluido']){
+                    echo "<tr><td>".$linha['id_usuario']."</td>";
+                    echo "<td>".$linha['nome']."</td>";
+                    echo "<td>".$linha['email']."</td>";
+                    echo "<td> Criptografia </td>";
+                    echo "<td>".$linha['admin']."</td>";
+                    echo "<td>".$linha['telefone']."</td>";
+                    echo "<td><a href='alterarUsuario.php?id_usuario=".$linha['id_usuario']."'>Alterar</a></td>";
+                    echo "<td><a href='excluirUsuario.php?id_usuario=".$linha['id_usuario']."'>Excluir</a></td></tr>";
+                }
             } ?>
                 </table>
                 <a href='cadastrar.php'>Adicionar novo usuário</a> <br>

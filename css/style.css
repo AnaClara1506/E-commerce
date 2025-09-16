@@ -68,6 +68,7 @@ nav {
 
 .menu-hamburguer {
   display: none;
+  cursor: pointer;
 }
 
 .menu-login{
@@ -184,17 +185,17 @@ footer{
 
 /*Conteúdo (títulos e textos)*/
 h1 {
-  font-size: 60px;
+  font-size: 45px;
   text-align: center;
   justify-content: center;
   color: #1d510d;
-  text-shadow: 0 0 5px rgb(0, 0, 0);
+  text-shadow: 0 0 4px rgb(0, 0, 0);
 }
 h2 {
   text-align: center;
   justify-content: center;
   color: #1d510d;
-  text-shadow: 0 0 5px rgb(0, 0, 0);
+  text-shadow: 0 0 4px rgb(0, 0, 0);
   font-size: 30px;
 }
 
@@ -212,6 +213,7 @@ article {
   font-size: 20px;
   width: 85%;
 }
+
 
 /*CRUD - Gerenciar*/
 .menu-crud{
@@ -394,6 +396,22 @@ a{
   font-size: 20px;
 }
 
+/*Minha conta*/
+.container-dados{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.dados{
+  color: #d4377e;
+  text-shadow: 0 0 2px rgb(0, 0, 0);
+  justify-content: center;
+  text-align: center;
+}
+
 /*Animações*/
 .fade-in-text {
   animation: fadeIn 3s;
@@ -455,10 +473,10 @@ a{
     width: 90px;
   }
   h1{
-    font-size: 45px;
+    font-size: 35px;
   }
   h2{
-    font-size: 30px;
+    font-size: 25px;
   }
   article{
     font-size: 20px;
@@ -499,6 +517,7 @@ a{
     margin-left: 7px;
     margin-right: 7px;
     padding: 7px 15px;
+    cursor: pointer;
   }
   .container-botoes{
     display: flex;

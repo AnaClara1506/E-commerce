@@ -14,5 +14,5 @@
 
     $update->execute();
 
-    header('Location: usuario.php');
+    header('Location: index.php');
 ?>

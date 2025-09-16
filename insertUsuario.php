@@ -13,5 +13,5 @@
     $insert->bindParam(':telefone', $_POST['telefone']);
     $insert->execute();
    
-    header('Location: index.php');
+    header('Location: login.php');
 ?>

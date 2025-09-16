@@ -26,7 +26,7 @@
             $usuario = $_POST['usuario'];
             $conn = conecta();
 
-			$select = $conn->prepare("select nome,senha,admin 
+			$select = $conn->prepare("select id_usuario, nome,senha,admin,excluido
                                       from usuario 
                                       where email=:usuario");
 
@@ -37,11 +37,12 @@
 
             $select->execute();
             $linha = $select->fetch();
-            if($linha){
+            if($linha && !$linha['excluido']){
                 if ( password_verify($senha,$linha['senha']) ) {
                     $_SESSION['statusConectado'] = true;
                     $_SESSION['admin'] = $linha['admin'];
                     $_SESSION['login'] = $linha['nome'];
+                    $_SESSION['id_usuario'] = $linha['id_usuario'];
                     header("location: index.php");   
                     echo "</div> </div>";
                 } else {
