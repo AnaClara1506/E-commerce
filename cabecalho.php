@@ -27,7 +27,7 @@
                 <?php
                     if(isset($_SESSION['statusConectado']) && $_SESSION['statusConectado'] == true){ 
                         echo "<a href='minhaConta.php' class='button'>Minha Conta</a>";
-                        echo "<a href='#' class='button'>Carrinho</a>";
+                        echo "<a href='carrinho.php' class='button'>Carrinho</a>";
                     }
                     else {
                         echo "<a class='button' id='login'>Login</a>";
@@ -47,31 +47,5 @@
         </div>
         
     </div>
-    <script>
-       $(document).ready(function() {
-            $(".menu-hamburguer").click(function () {
-                if ($(".menu-login").hasClass('active')) {
-                    $(".menu-login").removeClass('active');
-                }
-                $(".menu").toggleClass("active");
-            });
-
-            $("#login").click(function () {
-                if ($(".menu").hasClass('active')) {
-                    $(".menu").removeClass('active');
-                }
-                $(".menu-login").toggleClass("active");
-            });
-
-            $(document).click(function(event) {
-                if (!$(event.target).closest(".menu-hamburguer, .menu").length) {
-                    $(".menu").removeClass("active");
-                }
-                if (!$(event.target).closest("#login, .menu-login").length) {
-                    $(".menu-login").removeClass("active");
-                }
-            });
-        });
-    </script>
 </body>
 </html>

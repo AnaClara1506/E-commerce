@@ -26,6 +26,7 @@
         <br><br><br>
         <?php include("rodape.php") ?>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>

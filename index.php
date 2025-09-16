@@ -63,12 +63,12 @@
                             
                         </div>
                     </div>
-                </div>
-                <div class="manual-navigation">
+                    <div class="manual-navigation">
                         <label for="radio1" class="manual-btn"></label>
                         <label for="radio2" class="manual-btn"></label>
                         <label for="radio3" class="manual-btn"></label>
                         <label for="radio4" class="manual-btn"></label>
+                    </div>
                 </div>
             </div>
             <br>
@@ -99,27 +99,7 @@
         <br><br><br>
         <?php include("rodape.php") ?>
     </div>
-    <script>
-        $(document).ready(function () {
-            $(".tag").addClass("visible");
-        });
-
-        let count = 1;
-        document.getElementById("radio1").checked = true;
-
-        setInterval(function() {
-            nextImage();
-        }, 3000)
-
-        function nextImage(){
-            count++;
-            if(count > 4){
-                count=1;
-            }
-
-            document.getElementById("radio"+count).checked = true;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

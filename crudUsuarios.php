@@ -16,8 +16,8 @@
     <br>
     <h1 class='fade-in-text'> Crud Usuário <h1>
     <br>
-    <div class='fade-in-text'>
-        <table border="1">
+    <div class='table-responsiva' id="table-usuario">
+        <table class='fade-in-text' border="1">
             <tr>
                 <th>Id do usuário</th>
                 <th>Nome</th>
@@ -39,13 +39,12 @@
                     echo "<td><a href='alterarUsuario.php?id_usuario=".$linha['id_usuario']."'>Alterar</a></td>";
                     echo "<td><a href='excluirUsuario.php?id_usuario=".$linha['id_usuario']."'>Excluir</a></td></tr>";
                 }
-            } ?>
-                </table>
-                <br>
-                <a href='cadastrar.php'>Adicionar novo usuário</a> <br>
-                <a href='cadastrarAdmin.php'>Adicionar novo admin</a> <br><br>
-        </div>
-        <?php include 'rodape.php'; ?>
-
+            } 
+            echo "</table></div> 
+                    <a href='adicionarUsuario.php' class='fade-in-text'>Adicionar novo produto</a>
+                    <a href='cadastrarAdmin.php' class='fade-in-text'>Adicionar novo admin</a> "; ?>
+    <br><br>
+    <script src="script.js"></script>
+    <?php include 'rodape.php'; ?>
 </body>
 </html>

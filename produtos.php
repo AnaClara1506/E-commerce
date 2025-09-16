@@ -24,8 +24,8 @@
                 comprador. Todos os processos envolvidos na produção dos cadernos são realizados
                 artesanalmente, à mão pelos integrantes da empresa, desde a costura dos blocos de folhas
                 até a colagem dos tecidos nas capas, de forma a garantir ao cliente um produto
-                personalizado, além de ser ecologicamente correto e versátil no cotidiano. <br>
-            </p><br>
+                personalizado, além de ser ecologicamente correto e versátil no cotidiano.
+            </p>
         </div><br><br>
         <h2 class="fade-in-text">Garanta já o seu!</h2><br>
         <?php 
@@ -36,37 +36,25 @@
                 $select->execute();
                 $linha = $select->fetch();
         ?>
-        <div class='lista-produtos'>
-            <?php while ($linha = $select->fetch() ){
-                $foto = "Imagens/c".$linha['id_produto'].".jpg";
-                echo "<div class ='container-produtos'><img src = '$foto'>";
-                echo "<div class='dados-produto'> <p>".$linha['nome']."</p>";
-                echo "<p>".$linha['descricao']."</p>";
-                echo "<p>".$linha['tipo_produto']."</p>";
-                echo "<p class='preco'>".$linha['valor_unitario']."</p>";
-                echo "<a href='produtos.php' class='button'>Adicionar ao carrinho</a>";
-                echo "</div></div>";
-            }?>      
+        <div class='tag'>
+            <div class="lista-produtos">
+                <?php while ($linha = $select->fetch() ){
+                    $foto = "Imagens/c".$linha['id_produto'].".jpg";
+                    echo "<div class ='container-produtos'><img src = '$foto'>";
+                    echo "<div class='dados-produto'> <p>".$linha['nome']."</p>";
+                    echo "<p>".$linha['descricao']."</p>";
+                    echo "<p>".$linha['tipo_produto']."</p>";
+                    echo "<p class='preco'>".$linha['valor_unitario']."</p>";
+                    echo "<a href='produtos.php' class='button'>Adicionar ao carrinho</a>";
+                    echo "</div></div>";
+                }?>      
+            </div>
         </div>
         <br><br>
         <?php include("rodape.php") ?>
     </div>
-    <script>
-        $(document).on("scroll", function () {
-            var pageTop = $(document).scrollTop();
-            var pageBottom = pageTop + $(window).height();
-            var tags = $(".tag");
-
-            for (var i = 0; i < tags.length; i++) {
-                var tag = tags[i];
-                if ($(tag).position().top < pageBottom) {
-                    $(tag).addClass("visible");
-                } else {
-                    $(tag).removeClass("visible");
-                }
-            }
-        });
-    </script>
+    
+    <script src="script.js"></script>
 </body>
 
 </html>

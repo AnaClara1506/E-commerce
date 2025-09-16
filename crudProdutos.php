@@ -16,9 +16,9 @@
     <br>
     <h1 class="fade-in-text"> CRUD Produtos <h1>
     <br>
-    <div class=fade-in-text>
-        <table>
-            <tr border="1">
+    <div class='table-responsiva'>
+        <table class='fade-in-text' border="1">
+            <tr>
                 <th>Id do Produto</th>
                 <th>Nome</th>
                 <th>Descrição</th>
@@ -41,7 +41,9 @@
                     echo "<td><a href='excluirProdutos.php?id=".$linha['id_produto']."'>Excluir</a></td></tr>";
                 }
             }
-            echo "</table><br><a href='adicionarProdutos.php'>Adicionar novo produto</a>"; ?>
-    </div>
+            echo "</table></div> <a href='adicionarProdutos.php' class='fade-in-text'>Adicionar novo produto</a>"; ?>
+    <br><br>
+    <script src="script.js"></script>
+    <?php include 'rodape.php'; ?>
 </body>
 </html>
