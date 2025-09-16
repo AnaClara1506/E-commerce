@@ -13,9 +13,9 @@
     
     $varSQL = "SELECT * FROM usuario";
     $select = $conn->query($varSQL); ?>
-    
+    <br>
     <h1 class='fade-in-text'> Crud Usuário <h1>
-    
+    <br>
     <div class='fade-in-text'>
         <table border="1">
             <tr>
@@ -41,6 +41,7 @@
                 }
             } ?>
                 </table>
+                <br>
                 <a href='cadastrar.php'>Adicionar novo usuário</a> <br>
                 <a href='cadastrarAdmin.php'>Adicionar novo admin</a> <br><br>
         </div>

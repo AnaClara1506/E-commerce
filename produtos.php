@@ -13,45 +13,40 @@
 </head>
 
 <body>
-    <div class="container">
-        <br><h1>Conheça nossos produtos!</h1>
-        <div class="imagem-produtos">
-        <figure>
-          <img src="Imagens/caderno_modelo2.jpg" alt="Caderno" class="fade-in-text">
-          <figcaption>Cadernos EcoLine</figcaption>
-        </figure>
-        </div><br><br><br>
-        <div class ="container-produtos"></div>
-            <div class="container-textos">
-                <h2 class="texto">Modelo 1</h2>
-                <h2 class="texto">Modelo 2</h2>
-                <h2 class="texto">Modelo 3</h2>
-            </div>
-            <div class="container-modelos">
-                <div class="imagem-menor">
-                    <figure>
-                    <img src="Imagens/caderno_modelo1.jpg" alt="Caderno 1" class="fade-in-text">
-                    <figcaption>Cadernos EcoLine</figcaption>
-                    </figure>
-                </div>
-                <div class="imagem-menor">
-                    <figure>
-                    <img src="Imagens/caderno_modelo2.jpg" alt="Caderno 2" class="fade-in-text">
-                    <figcaption>Cadernos EcoLine 2</figcaption>
-                    </figure>
-                </div>
-                <div class="imagem-menor">
-                    <figure>
-                    <img src="Imagens/caderno_modelo3.jpg" alt="Caderno 3" class="fade-in-text">
-                    <figcaption>Cadernos EcoLine 3</figcaption>
-                    </figure>
-                </div>
-            </div>
-            <div class ="button-produtos">
-                <a href='#' class='button'>Adicionar ao Carrinho</a>
-                <a href='#' class='button'>Adicionar ao Carrinho</a>
-                <a href='#' class='button'>Adicionar ao Carrinho</a>
-            </div>
+    <div class="fade-in-text; container">
+        <br><h1>Conheça nossos produtos!</h1><br>
+        <div class="info-produtos">
+            <img src="Imagens/imgcaderno1.jpg" alt="Caderno" class="fade-in-text" width="80px">
+            <p class='p-produtos'>Os cadernos EcoLine se diferenciam pela proposta sustentável que é oferecida ao cliente,
+                com 32 folhas de papel reciclado que são inseridas em cada produto, possuindo o formato
+                de 22,2 cm x 15 cm. As capas, confeccionadas em papel paraná, são revestidas com
+                tecidos de qualidade e de estilos variados, para que se amoldem à individualidade de cada
+                comprador. Todos os processos envolvidos na produção dos cadernos são realizados
+                artesanalmente, à mão pelos integrantes da empresa, desde a costura dos blocos de folhas
+                até a colagem dos tecidos nas capas, de forma a garantir ao cliente um produto
+                personalizado, além de ser ecologicamente correto e versátil no cotidiano. <br>
+            </p><br>
+        </div><br><br>
+        <h2 class="fade-in-text">Garanta já o seu!</h2><br>
+        <?php 
+                include "util.php";
+                $conn = conecta();
+                $varSQL = "SELECT * FROM produto";
+                $select = $conn->prepare($varSQL);
+                $select->execute();
+                $linha = $select->fetch();
+        ?>
+        <div class='lista-produtos'>
+            <?php while ($linha = $select->fetch() ){
+                $foto = "Imagens/c".$linha['id_produto'].".jpg";
+                echo "<div class ='container-produtos'><img src = '$foto'>";
+                echo "<div class='dados-produto'> <p>".$linha['nome']."</p>";
+                echo "<p>".$linha['descricao']."</p>";
+                echo "<p>".$linha['tipo_produto']."</p>";
+                echo "<p class='preco'>".$linha['valor_unitario']."</p>";
+                echo "<a href='produtos.php' class='button'>Adicionar ao carrinho</a>";
+                echo "</div></div>";
+            }?>      
         </div>
         <br><br>
         <?php include("rodape.php") ?>

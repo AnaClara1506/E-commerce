@@ -14,7 +14,7 @@
             include "util.php";
             $conn = conecta();
             $id_usuario = $_SESSION['id_usuario']; 
-            $varSQL = "SELECT nome, email, telefone FROM usuario WHERE id_usuario = :id_usuario ORDER BY id_produto ASC";
+            $varSQL = "SELECT nome, email, telefone FROM usuario WHERE id_usuario = :id_usuario";
             $select = $conn->prepare($varSQL);
             $select->bindParam(':id_usuario', $id_usuario);
             $select->execute();

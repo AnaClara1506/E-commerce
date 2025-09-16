@@ -13,7 +13,7 @@
     
     $varSQL = "SELECT * FROM produto";
     $select = $conn->query($varSQL); ?>
-    
+    <br>
     <h1 class="fade-in-text"> CRUD Produtos <h1>
     <br>
     <div class=fade-in-text>

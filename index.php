@@ -26,26 +26,73 @@
                 </h3>
             </article>
             <br>
-        </div>
-        <h2 class="fade-in-text; tag">Nossos produtos</h2><br><br>
-        <div class="comercio">
-            <?php 
-                include "util.php";
-                $conn = conecta();
-                $varSQL = "SELECT * FROM produto";
-                $select = $conn->prepare($varSQL);
-                $select->execute();
-                $linha = $select->fetch();
-            ?>
-            <div class="tag" id="produtos">
+            <!--Slider-->
+            <div class="slider">
+                <div class="slides">
+                    <input type="radio" name="radio-btn" id="radio1">
+                    <input type="radio" name="radio-btn" id="radio2">
+                    <input type="radio" name="radio-btn" id="radio3">
+                    <input type="radio" name="radio-btn" id="radio4">
+
+                    <!--Imagens do slider-->
+                    <div class="slide first">
+                        <img src="Imagens/imgcaderno1.jpg" alt="Imagem 1">
+                    </div>
+                    <div class="slide">
+                        <img src="Imagens/imgcaderno2.jpg" alt="Imagem 2">
+                    </div>
+                    <div class="slide">
+                        <img src="Imagens/imgcaderno3.jpg" alt="Imagem 3">
+                    </div>
+                    <div class="slide">
+                        <img src="Imagens/imgcaderno4.jpg" alt="Imagem 4">
+                    </div>
+
+                    <!--Navegação auto-->
+                    <div class="navigation-auto">
+                        <div class="auto-btn1">
+
+                        </div>
+                        <div class="auto-btn2">
+                            
+                        </div>
+                        <div class="auto-btn3">
+                            
+                        </div>
+                        <div class="auto-btn4">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="manual-navigation">
+                        <label for="radio1" class="manual-btn"></label>
+                        <label for="radio2" class="manual-btn"></label>
+                        <label for="radio3" class="manual-btn"></label>
+                        <label for="radio4" class="manual-btn"></label>
+                </div>
+            </div>
+            <br>
+            <h2 class="tag">Nossos produtos</h2><br>
+            <div class="comercio">
+                <?php 
+                    include "util.php";
+                    $conn = conecta();
+                    $varSQL = "SELECT * FROM produto";
+                    $select = $conn->prepare($varSQL);
+                    $select->execute();
+                    $linha = $select->fetch();
+                ?>
                 <?php while ($linha = $select->fetch() ){
-                    $foto = "Imagens/c".$linha['id_produto'].".jpg";
-                    echo "<img src = '$foto'>";
-                    echo "<p>".$linha['nome']."</p>";
-                    echo "<p class='preco'>".$linha['valor_unitario']."</p><br>";
-                    echo "<a href='produtos.php' class='button'>Ver produto</a>";
-                    echo "</div>";
+                    echo "<div class='tag' id='produtos'>";
+                    if(!$linha['excluido']){
+                        $foto = "Imagens/c".$linha['id_produto'].".jpg";
+                        echo "<img src = '$foto'>";
+                        echo "<p>".$linha['nome']."</p>";
+                        echo "<p class='preco'> R$ ".$linha['valor_unitario']."</p><br>";
+                        echo "<a href='produtos.php' class='button'>Ver produto</a>";
                     }
+                    echo "</div>";
+                }
                 ?>
             </div>
         </div>
@@ -56,6 +103,22 @@
         $(document).ready(function () {
             $(".tag").addClass("visible");
         });
+
+        let count = 1;
+        document.getElementById("radio1").checked = true;
+
+        setInterval(function() {
+            nextImage();
+        }, 3000)
+
+        function nextImage(){
+            count++;
+            if(count > 4){
+                count=1;
+            }
+
+            document.getElementById("radio"+count).checked = true;
+        }
     </script>
 </body>
 
