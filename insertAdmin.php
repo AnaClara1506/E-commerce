@@ -4,6 +4,10 @@
     $varSQL ="insert into usuario (nome, email, senha, telefone, admin)
             values (:nome, :email, :senha, :telefone, true)";
             
+    if($_POST['senha'] != $_POST['senha-confirmacao']){
+        header('Location: cadastrar.php?erro=senha');
+    }
+
     $senha = $_POST['senha'];
     $senhaCripto = password_hash($senha,PASSWORD_DEFAULT);
     $insert = $conn->prepare($varSQL);

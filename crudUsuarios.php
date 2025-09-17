@@ -41,10 +41,10 @@
                 }
             } 
             echo "</table></div> 
-                    <a href='adicionarUsuario.php' class='fade-in-text'>Adicionar novo produto</a>
+                    <a href='cadastrar.php' class='fade-in-text'>Adicionar novo usuário</a>
                     <a href='cadastrarAdmin.php' class='fade-in-text'>Adicionar novo admin</a> "; ?>
     <br><br>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
     <?php include 'rodape.php'; ?>
 </body>
 </html>

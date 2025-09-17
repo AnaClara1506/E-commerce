@@ -43,7 +43,7 @@
             }
             echo "</table></div> <a href='adicionarProdutos.php' class='fade-in-text'>Adicionar novo produto</a>"; ?>
     <br><br>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
     <?php include 'rodape.php'; ?>
 </body>
 </html>

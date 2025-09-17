@@ -19,8 +19,11 @@
             <input type="email" name="email" class="textbox" placeholder="Insira o seu E-mail..." required>
             <p>Crie sua senha:</p>
             <input type="password" name="senha" class="textbox" placeholder="Crie sua senha..." required>
-            <input type="password" class="textbox" placeholder="Confirme sua senha..." required>
+            <input type="password" name="senha-confirmacao" class="textbox" placeholder="Confirme sua senha..." required>
             <input type="submit" class="button" value="Cadastrar-se">
+            <?php if(isset($_GET['erro']) && $_GET['erro'] === 'senha'){
+                echo "<h3> Digite a mesma senha nos dois campos </h3>";
+            }?>
         </form>
     </body>
 </html>

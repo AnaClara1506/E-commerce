@@ -83,7 +83,7 @@ a:hover {
   font-size: 18px;   
 }
 
-.login-invalido{
+.login-invalido, p{
   color: #1d510d;
   font-size: 16px;
   text-decoration: none;
