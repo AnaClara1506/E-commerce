@@ -42,6 +42,8 @@
                 echo "<br><a href='logout.php' class='button'>Logout</a></div>";
             }
         ?>
+        <br> <br> <br>
+        <?php include("rodape.php") ?>
     </body>
     <script src="js/script.js"></script>
 </html>

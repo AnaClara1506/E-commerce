@@ -26,10 +26,11 @@
             <div class="container-botoes">
                 <?php
                     if(isset($_SESSION['statusConectado']) && $_SESSION['statusConectado'] == true){ 
-                        echo "<a href='minhaConta.php' class='button'>Minha Conta</a>";
                         echo "<a href='carrinho.php' class='button'>Carrinho</a>";
+                        echo "<a href='minhaConta.php' class='button'>Minha Conta</a>";
                     }
                     else {
+                        echo "<a href='carrinho.php' class='button'>Carrinho</a>";
                         echo "<a class='button' id='login'>Login</a>";
                         echo "<div class='menu-login'>
                                 <div class='flex-login'>

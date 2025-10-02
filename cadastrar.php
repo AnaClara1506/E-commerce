@@ -17,8 +17,8 @@
             <p>Endereço de E-mail:</p>
             <input type="email" name="email" class="textbox" placeholder="Insira o seu E-mail..." required>
             <p>Crie sua senha:</p>
-            <input type="password" name="senha" class="textbox" placeholder="Crie sua senha..." required>
-            <input type="password" class="textbox" name="senha-confirmacao" placeholder="Confirme sua senha..." required>
+            <input type="password" name="senha" class="textbox" placeholder="Crie sua senha... (8 dígitos)" minlength="8" maxlength="8" required>
+            <input type="password" class="textbox" name="senha-confirmacao" placeholder="Confirme sua senha (8 dígitos)..." minlength="8" maxlength="8" required>
             <input type="submit" class="button" value="Cadastrar-se"><br>
             <?php if(isset($_GET['erro']) && $_GET['erro'] === 'senha'){
                 echo "<p> Digite a mesma senha nos dois campos! </p>";

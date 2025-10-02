@@ -11,8 +11,8 @@
             <div class="box">
                 <h1>Login do Usuário</h1>
                 <form action="" method="post">
-                    <input type="email" name='usuario' class="textbox" placeholder="Insira o seu email...">
-                    <input type="password" name='senha' class="textbox" placeholder="Insira a sua senha...">
+                    <input type="email" name='usuario' class="textbox" placeholder="Insira o seu email..." required>
+                    <input type="password" name='senha' class="textbox" placeholder="Insira a sua senha... (8 dígitos)" required>
                     <a href="esqueciASenha.php">Esqueci a senha?</a><br>
                     <input type="submit" class="button" value="Entrar"><br> 
                 </form>
