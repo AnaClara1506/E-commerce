@@ -19,6 +19,24 @@
         $insert->bindParam(':telefone', $_POST['telefone']);
         $insert->execute();
     
-        header('Location: login.php');
+        //Entrando na conta automaticamente
+        $email = $_POST['email'];
+
+		$select = $conn->prepare("select id_usuario, nome,senha,admin,excluido
+                                      from usuario 
+                                      where email=:email");
+
+        $select->bindParam(":email",$email);
+        $senha = $_POST['senha'];
+
+        $select->execute();
+        $linha = $select->fetch();
+         if($linha){
+            $_SESSION['statusConectado'] = true;
+            $_SESSION['admin'] = $linha['admin'];
+            $_SESSION['login'] = $linha['nome'];
+            $_SESSION['id_usuario'] = $linha['id_usuario'];
+            header("location: index.php");   
+         }
     }
 ?>
