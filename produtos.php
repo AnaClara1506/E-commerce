@@ -45,7 +45,7 @@
                     echo "<p>".$linha['descricao']."</p>";
                     echo "<p>".$linha['tipo_produto']."</p>";
                     echo "<p class='preco'>".$linha['valor_unitario']."</p>";
-                    echo "<a href='carrinho.php' class='button'>Adicionar ao carrinho</a>";
+                    echo "<a href='carrinho.php?operacao=incluir&id_produto=".$linha['id_produto']."' class='button'> Adicionar ao carrinho </a>";
                     echo "</div></div>";
                 }?>      
             </div>

@@ -442,6 +442,15 @@ a:hover{
   transition: 1s;
 }
 
+/*Carrinho*/
+.texto-carrinho{
+  color: #d4377e;
+  text-shadow: 0 0 3px black;
+  text-align: center;
+  display: block;
+}
+
+
 /*Minha conta*/
 .container-dados{
   display: flex;
@@ -515,6 +524,7 @@ a:hover{
 .manual-btn:hover{
   background-color: #fcf1f5;
 }
+
 
 /*manipulação*/
 #radio1:checked ~ .first {
