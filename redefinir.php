@@ -45,6 +45,7 @@
           
                // se o preenchimento da nova senha esta correto
                // atualiza a senha do usuario !!!
+               
 
                echo "<br><br><a href='login.php'>Login</a>";
           }

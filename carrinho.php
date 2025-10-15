@@ -1,72 +1,87 @@
 <?php
-    ini_set('session.gc_maxlifetime', 7776000);
-    session_start();
+ini_set('session.gc_maxlifetime', 7776000);
+session_start();
 
-    include 'util.php';
-    $conn = conecta();
+include 'util.php';
+$conn = conecta();
 
-    if(!isset($_SESSION['statusconectado'])){
-        $_SESSION['statusconectado'] = 1;
-    }
+if(!isset($_SESSION['statusconectado'])){
+    $_SESSION['statusconectado'] = 1;
+}
 
-    $id_usuario = $_SESSION['id_usuario'] ?? null;
-    $status = "carrinho";
-    $operacao = $_GET['operacao'] ?? null;
-    $id_produto = $_GET['id_produto'] ?? null;
-    $session_id = session_id();
+$id_usuario = $_SESSION['id_usuario'] ?? null;
+$status = "carrinho";
+$operacao = $_GET['operacao'] ?? null;
+$id_produto = $_GET['id_produto'] ?? null;
+$session_id = session_id();
 
-    //Verifica se já existe compra para essa sessão
-    $sql_compra = $conn->prepare("SELECT id_compra FROM compra WHERE (sessao = :sessao OR fk_usuario = :usuario) AND status='carrinho'");
-    $sql_compra->execute(['sessao' => $session_id, ':usuario' => $id_usuario]);
-    $id_compra = $sql_compra->fetchColumn();
+// Inicializa a variável de mensagem
+$mensagem_carrinho = null;
 
-    // Se não existe, cria uma nova compra
-    if(!$id_compra){
-        $insert = $conn->prepare("INSERT INTO compra (status, sessao, id_transacao) VALUES ('carrinho', :sessao, :id_transacao) RETURNING id_compra");
-        $insert->execute(['sessao'=>$session_id, 'id_transacao'=>0]);
-        $id_compra = $insert->fetchColumn(); 
-    }
+//Verifica se já existe compra para essa sessão
+$sql_compra = $conn->prepare(" SELECT id_compra FROM compra WHERE (sessao = :sessao OR fk_usuario = :usuario) AND status = 'carrinho'");
+$sql_compra->execute(['sessao' => $session_id, 'usuario' => $id_usuario]);
+$id_compra = $sql_compra->fetchColumn();
 
-    // Atualiza fk_usuario se logado
-    if($_SESSION['statusconectado'] && $status == 'carrinho' && !empty($id_usuario)){
-        $update = $conn->prepare("UPDATE compra SET fk_usuario = :id_usuario WHERE id_compra = :id_compra AND fk_usuario IS NULL");
-        $update ->execute(['id_usuario'=>$id_usuario, 'id_compra'=>$id_compra]);
-    }
+// Se não existe, cria uma nova compra
+if(!$id_compra){
+    $insert = $conn->prepare("INSERT INTO compra (status, sessao) 
+                            VALUES ('carrinho', :sessao)");
+    $insert->execute(['sessao'=>$session_id]);
+    $id_compra = $conn->lastInsertId();
+}
 
-    //Operações recursivas
-    if($operacao && $id_produto){
-        // Verifica se produto já está no carrinho
-        $qtde_sql = $conn->prepare("SELECT quantidade FROM compra_produto WHERE fk_compra = :id_compra AND fk_produto = :id_produto");
-        $qtde_sql->execute(['id_compra'=>$id_compra,'id_produto'=>$id_produto]);
-        $quantidade = $qtde_sql->fetchColumn();
+// Atualiza fk_usuario se logado
+if($_SESSION['statusconectado'] && $status == 'carrinho' && !empty($id_usuario)){
+    $update = $conn->prepare("UPDATE compra SET fk_usuario = :id_usuario WHERE id_compra = :id_compra AND fk_usuario IS NULL");
+    $update ->execute(['id_usuario'=>$id_usuario, 'id_compra'=>$id_compra]);
+}
 
-        if($operacao == 'incluir'){
-            if(!$quantidade){
-                $insert_prod = $conn->prepare("INSERT INTO compra_produto (fk_compra, fk_produto, quantidade) VALUES (:id_compra, :id_produto, 1)");
-                $insert_prod->execute(['id_compra'=>$id_compra,'id_produto'=>$id_produto]);
+//Operações recursivas
+if($operacao){
+    // Verifica se produto já está no carrinho
+    $qtde_sql = $conn->prepare("SELECT quantidade FROM compra_produto WHERE fk_compra = :id_compra AND fk_produto = :id_produto");
+    $qtde_sql->execute(['id_compra'=>$id_compra,'id_produto'=>$id_produto]);
+    $quantidade = $qtde_sql->fetchColumn();
+
+    if($operacao == 'incluir' && $id_produto){
+        if(!$quantidade){
+            $valor_sql = $conn->prepare("SELECT valor_unitario FROM produto WHERE id_produto = :id_produto");
+            $valor_sql->execute(['id_produto' => $id_produto]);
+            $valor_unitario = $valor_sql->fetchColumn();
+
+            $insert_prod = $conn->prepare("INSERT INTO compra_produto (fk_compra, fk_produto, quantidade, valor_unitario) 
+                                        VALUES (:id_compra, :id_produto, 1, :valor_unitario)");
+            $insert_prod->execute(['id_compra' => $id_compra,'id_produto' => $id_produto,'valor_unitario' => $valor_unitario]);
+        } else {
+            $update_prod = $conn->prepare("UPDATE compra_produto SET quantidade = quantidade + 1 WHERE fk_compra = :id_compra AND fk_produto = :id_produto");
+            $update_prod->execute(['id_compra'=>$id_compra,'id_produto'=>$id_produto]);
+        }
+    } elseif($operacao == 'excluir'  && $id_produto){
+        if($quantidade > 1){
+            $update_prod = $conn->prepare("UPDATE compra_produto SET quantidade = quantidade - 1 WHERE fk_compra = :id_compra AND fk_produto = :id_produto");
+            $update_prod->execute(['id_compra'=>$id_compra,'id_produto'=>$id_produto]);
+        } else {
+            $delete_prod = $conn->prepare("DELETE FROM compra_produto WHERE fk_compra = :id_compra AND fk_produto = :id_produto");
+            $delete_prod->execute(['id_compra'=>$id_compra,'id_produto'=>$id_produto]);
+        }
+    } elseif($operacao == 'fechar' && $id_compra){
+        if(!empty($id_usuario)){
+            $update_compra = $conn->prepare("UPDATE compra SET fk_usuario = :id_usuario, status = 'reservado' WHERE id_compra = :id_compra");
+            $update_compra->execute(['id_usuario' => $id_usuario,'id_compra' => $id_compra]);
+
+            if($update_compra->rowCount() > 0){
+                $mensagem_carrinho = "Compra finalizada com sucesso!";
             } else {
-                $update_prod = $conn->prepare("UPDATE compra_produto SET quantidade = quantidade + 1 WHERE fk_compra = :id_compra AND fk_produto = :id_produto");
-                $update_prod->execute(['id_compra'=>$id_compra,'id_produto'=>$id_produto]);
+                $mensagem_carrinho = "Falha ao atualizar o status da compra.";
             }
-        } elseif($operacao == 'excluir'){
-            if($quantidade > 1){
-                $update_prod = $conn->prepare("UPDATE compra_produto SET quantidade = quantidade - 1 WHERE fk_compra = :id_compra AND fk_produto = :id_produto");
-                $update_prod->execute(['id_compra'=>$id_compra,'id_produto'=>$id_produto]);
-            } else {
-                $delete_prod = $conn->prepare("DELETE FROM compra_produto WHERE fk_compra = :id_compra AND fk_produto = :id_produto");
-                $delete_prod->execute(['id_compra'=>$id_compra,'id_produto'=>$id_produto]);
-            }
-        } elseif($operacao == 'fechar' && $id_compra){
-            if(isset($_SESSION['statusConectado']) && $_SESSION['statusConectado'] == true){
-                $update_compra = $conn->prepare("UPDATE compra SET fk_usuario = :id_usuario, status='reservado' WHERE fk_compra = :id_compra");
-                $update_compra->execute(['id_usuario'=>$id_usuario, 'id_compra'=>$id_compra]);
-            } else {
-                echo "<h3 class='texto-carrinho'>Você precisa estar logado para fechar a compra!</h3>";
-                echo "<a href='login.php' class='texto-carrinho'>Fazer login</a>";
-            }
+        } else {
+            $mensagem_carrinho = "Você precisa estar logado para fechar a compra! <a href='login.php' class='texto-carrinho'>Fazer login</a>";
         }
     }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head> 
@@ -91,13 +106,12 @@
                         echo "<a href='produtos.php' class='texto-carrinho'>Ver página de produtos</a>";
                     } 
                     else {
-                        AtualizarGride($id_compra, $status);
+                        AtualizarGride($id_compra, $status, $mensagem_carrinho);
                     }
                 ?>
             </div>
             <?php   
-                //Função para mostrar o carrinho
-                function AtualizarGride($id_compra, $status){
+                function AtualizarGride($id_compra, $status, $mensagem_carrinho){
                     global $conn;
                     if(!$id_compra || !is_numeric($id_compra)){
                         echo "<br><h2>Nenhuma compra selecionada.</h2>";
@@ -106,8 +120,9 @@
 
                     $sql = $conn->prepare("SELECT cp.fk_produto, p.nome, p.valor_unitario, cp.quantidade 
                                         FROM compra_produto cp 
-                                        JOIN produto p ON cp.fk_produto = p.id_produto 
-                                        WHERE cp.fk_compra = :id_compra");
+                                        JOIN produto p ON cp.fk_produto = p.id_produto
+                                        JOIN compra c ON cp.fk_compra = c.id_compra
+                                        WHERE cp.fk_compra = :id_compra and c.status = 'carrinho'");
                     $sql->execute(['id_compra'=>$id_compra]);
                     $total = 0;
                     $qtde_total = 0;
@@ -142,7 +157,7 @@
                     }
                     echo "</table></div>";
                     echo "<br>
-                    <h2 class='fade-in-text'> Resumo do pedido: <h2>
+                    <h2 class='fade-in-text'> Resumo do pedido: </h2>
                     <br>
                     <div class='table-responsiva'>
                         <table border='1' class='tabela-resumo'>
@@ -157,8 +172,16 @@
                     </div>";
 
                     if($_SESSION['statusconectado'] && $total > 0 && $status == 'carrinho'){
-                        echo "<br><a href='carrinho.php?operacao=fechar' class='button'> Fechar compra </a>";
+                        echo "<br><div class= 'botao'> 
+                        <a href='carrinho.php?operacao=fechar' class='button'> Fechar compra </a>
+                        </div>";
                     }
+
+                    
+                    if (!is_null($mensagem_carrinho)) {
+                        echo "<br><h3 class='texto-carrinho'>$mensagem_carrinho</h3><br>";
+                    }
+
                     echo "</div>";
                 }
             ?>

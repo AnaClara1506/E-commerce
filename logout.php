@@ -12,5 +12,6 @@
     unset($_SESSION['statusConectado']);
     unset($_SESSION['login']);
     unset($_SESSION['admin']);
+    unset( $_SESSION['id_usuario'])
 
 ?>

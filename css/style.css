@@ -184,6 +184,12 @@ footer{
   box-shadow: 5px 5px 20px #173b0c;
 }
 
+.botao{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
 /*Conteúdo (títulos e textos)*/
 h1 {
   font-size: 45px;
