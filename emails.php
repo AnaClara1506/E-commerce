@@ -5,8 +5,8 @@
    error_reporting (E_ALL);
 
    //// PARA ENVIO DE EMAILS PHPMAILER //////
-   include __DIR__.'/PHPMailer/src/PHPMailer.php';
-   include __DIR__.'/PHPMailer/src/SMTP.php';
+   include __DIR__.'/phpmailer/src/PHPMailer.php';
+   include __DIR__.'/phpmailer/src/SMTP.php';
    //////////////////////////////////////////
 
    // inicia a sessao    

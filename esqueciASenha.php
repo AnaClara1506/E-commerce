@@ -49,15 +49,15 @@
                     $seusite = "eq4.ini2a"; 
                     
                     $html="<h2>Redefinir sua senha</h2><br>
-                        <p><b>Oi $nome</b></p>, <br>
+                        <p><b>Oi $nome, </b></p><br>
                         <h3>Clique no link para redefinir sua senha:<br></h3>
                         <p> http://$seusite.projetoscti.com.br/redefinir.php?token=$token </p>";
                     
                     // guarda o email pra recuperar a senha em redefinir.php
                     $_SESSION["email"] = $email;
 
-                    if ( EnviaEmail ( $email, '* Recupere a sua senha !! *', $html ) ) {
-                        echo "<p><br><b>Email enviado com sucesso</b> (verifique sua caixa de spam se nao encontrar)</p>";
+                    if ( EnviaEmail ( $email, 'Ecoline - Recupere a sua senha !! ', $html ) ) {
+                        echo "<p><br><b>Email enviado com sucesso</b> <br> Verifique sua caixa de spam se nao encontrar</p>";
                     }   
 
                 } else {
