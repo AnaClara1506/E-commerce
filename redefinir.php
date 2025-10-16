@@ -3,11 +3,11 @@
      <div class='box'>
           <h1>Redefinir a senha</h1>
           <form action='' method='post'>  
-               <p>Senha (8 digitos)</p><br>
-               <input type='password' name='senha1' minlength='8' maxlength='8' placehoder="Insira a nova senha... " class="textbox"><br>
-               <p>Redigite a senha</p><br>
-               <input type='password' name='senha2' minlength='8' maxlength='8' placehoder="Confirme a nova senha... " class="textbox"><br>                
-               <input type='submit' value='Alterar'>
+               <p>Senha (8 digitos)</p>
+               <input type='password' name='senha1' minlength='8' maxlength='8' placeholder="Insira a nova senha... " class="textbox"><br>
+               <p>Redigite a senha</p>
+               <input type='password' name='senha2' minlength='8' maxlength='8' placeholder="Confirme a nova senha... " class="textbox"><br>                
+               <input type='submit' value='Alterar' class="button">
           </form>
      </div>
 

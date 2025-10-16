@@ -48,7 +48,7 @@
      $mail->Username = $pUsuario; 
      $mail->Password = $pSenha; 
      $mail->From = $pUsuario; 
-     $mail->FromName = "Recuperacao de senhas"; 
+     $mail->FromName = "Ecoline - Recuperacao de senhas"; 
   
      $mail->AddAddress($pEmailDestino, "Usuario"); 
      $mail->IsHTML(true); // o conteudo enviado eh html (poderia ser txt comum sem formato)
