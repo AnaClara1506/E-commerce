@@ -1,13 +1,15 @@
 <html>
      <link rel="stylesheet" href="css/login.css">
-     <h3>Redefinir a senha</h3>
-     <form action='' method='post' class='box'>  
-          Senha (8 digitos)<br>
-          <input type='password' name='senha1' minlength='8' maxlength='8'><br>
-          Redigite a senha<br>
-          <input type='password' name='senha2' minlength='8' maxlength='8'><br>                
-          <input type='submit' value='Alterar'>
-     </form>
+     <div class='box'>
+          <h1>Redefinir a senha</h1>
+          <form action='' method='post'>  
+               <p>Senha (8 digitos)</p><br>
+               <input type='password' name='senha1' minlength='8' maxlength='8' placehoder="Insira a nova senha... " class="textbox"><br>
+               <p>Redigite a senha</p><br>
+               <input type='password' name='senha2' minlength='8' maxlength='8' placehoder="Confirme a nova senha... " class="textbox"><br>                
+               <input type='submit' value='Alterar'>
+          </form>
+     </div>
 
      <?php
 
