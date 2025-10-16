@@ -1,6 +1,7 @@
 <html>
+     <link rel="stylesheet" href="css/login.css">
      <h3>Redefinir a senha</h3>
-     <form action='' method='post'>  
+     <form action='' method='post' class='box'>  
           Senha (8 digitos)<br>
           <input type='password' name='senha1' minlength='8' maxlength='8'><br>
           Redigite a senha<br>
