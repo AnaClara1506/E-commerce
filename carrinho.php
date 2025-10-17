@@ -24,12 +24,12 @@ $mensagem_carrinho = null;
 if ($id_usuario > 0) {
     $sql_compra = $conn->prepare("
         SELECT id_compra FROM compra 
-        WHERE (fk_usuario = :usuario) 
+        WHERE ((sessao = :sessao) OR (fk_usuario = :usuario)) 
         AND status = 'carrinho' 
         ORDER BY id_compra DESC 
         LIMIT 1
     ");
-    $sql_compra->execute([':usuario' => $id_usuario]);
+    $sql_compra->execute([':sessao' => $session_id, ':usuario' => $id_usuario]);
 } else {
     // usuário não logado, só busca pela sessão
     $sql_compra = $conn->prepare("
