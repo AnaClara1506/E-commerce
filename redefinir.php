@@ -9,7 +9,6 @@
                <input type='password' name='senha2' minlength='8' maxlength='8' placeholder="Confirme a nova senha... " class="textbox"><br>                
                <input type='submit' value='Alterar' class="button">
           </form>
-     </div>
 
      <?php
 
@@ -52,7 +51,7 @@
                // atualiza a senha do usuario !!!
                
 
-               echo "<br><br><a href='login.php'>Login</a>";
+               echo "</div><br><br><a href='login.php'>Login</a>";
           }
      ?>  
 </html>

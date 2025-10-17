@@ -19,6 +19,12 @@
         }
     }
 
+    function ExecutaSQL ($paramConn, $paramSQL) 
+    {
+     return $paramConn->exec($paramSQL) > 0;
+    }
+
+
     function ValorSQL1 ($paramConn, $paramSQL) 
     {
       // com query vc nao passa parametros, apenas $conn e frase SQL  
