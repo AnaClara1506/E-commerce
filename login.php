@@ -13,7 +13,8 @@
                 <form action="" method="post">
                     <input type="email" name='usuario' class="textbox" placeholder="Insira o seu email..." required>
                     <input type="password" name='senha' class="textbox" placeholder="Insira a sua senha... (8 dígitos)" required>
-                    <a href="esqueciASenha.php">Esqueci a senha?</a><br>
+                    <a href="esqueciASenha.php">Esqueci a senha</a><br>
+                    <a href="cadastrar.php">Não tenho cadastro</a><br>
                     <input type="submit" class="button" value="Entrar"><br> 
                 </form>
             <div class='login-invalido'>
