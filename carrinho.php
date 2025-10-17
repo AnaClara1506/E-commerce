@@ -1,27 +1,59 @@
 <?php
-ini_set('session.gc_maxlifetime', 7776000);
-session_start();
+if ( session_status() !== PHP_SESSION_ACTIVE ){
+//  ini_set('session.gc_maxlifetime', 7776000);
+    session_start();
+}
 
 include 'util.php';
 $conn = conecta();
 
-if(!isset($_SESSION['statusconectado'])){
-    $_SESSION['statusconectado'] = 1;
-}
+
 
 $id_usuario = $_SESSION['id_usuario'] ?? null;
-$status = "carrinho";
 $operacao = $_GET['operacao'] ?? null;
+$status = 'carrinho';
 $id_produto = $_GET['id_produto'] ?? null;
 $session_id = session_id();
+
+$id_compra = null;
 
 // Inicializa a variável de mensagem
 $mensagem_carrinho = null;
 
 //Verifica se já existe compra para essa sessão
-$sql_compra = $conn->prepare(" SELECT id_compra FROM compra WHERE (sessao = :sessao OR fk_usuario = :usuario) AND status = 'carrinho'");
-$sql_compra->execute(['sessao' => $session_id, 'usuario' => $id_usuario]);
-$id_compra = $sql_compra->fetchColumn();
+if ($id_usuario > 0) {
+    $sql_compra = $conn->prepare("
+        SELECT id_compra FROM compra 
+        WHERE (fk_usuario = :usuario) 
+        AND status = 'carrinho' 
+        ORDER BY id_compra DESC 
+        LIMIT 1
+    ");
+    $sql_compra->execute([':usuario' => $id_usuario]);
+} else {
+    // usuário não logado, só busca pela sessão
+    $sql_compra = $conn->prepare("
+        SELECT id_compra FROM compra 
+        WHERE sessao = :sessao 
+          AND status = 'carrinho' 
+        ORDER BY id_compra DESC 
+        LIMIT 1
+    ");
+    $sql_compra->execute([':sessao' => $session_id]);
+}
+
+$compra = $sql_compra->fetch();
+
+
+if ($compra) {
+    $id_compra = $compra['id_compra'];
+}
+
+// Atualiza fk_usuario se logado
+if($_SESSION['statusconectado'] && !empty($id_usuario)){
+    $update = $conn->prepare("UPDATE compra SET fk_usuario = :id_usuario WHERE id_compra = :id_compra");
+    $update ->execute(['id_usuario'=>$id_usuario, 'id_compra'=>$id_compra]);
+}
 
 // Se não existe, cria uma nova compra
 if(!$id_compra){
@@ -31,11 +63,6 @@ if(!$id_compra){
     $id_compra = $conn->lastInsertId();
 }
 
-// Atualiza fk_usuario se logado
-if($_SESSION['statusconectado'] && $status == 'carrinho' && !empty($id_usuario)){
-    $update = $conn->prepare("UPDATE compra SET fk_usuario = :id_usuario WHERE id_compra = :id_compra AND fk_usuario IS NULL");
-    $update ->execute(['id_usuario'=>$id_usuario, 'id_compra'=>$id_compra]);
-}
 
 //Operações recursivas
 if($operacao){
@@ -118,12 +145,8 @@ if($operacao){
                         return;
                     }
 
-                    $sql = $conn->prepare("SELECT cp.fk_produto, p.nome, p.valor_unitario, cp.quantidade 
-                                        FROM compra_produto cp 
-                                        JOIN produto p ON cp.fk_produto = p.id_produto
-                                        JOIN compra c ON cp.fk_compra = c.id_compra
-                                        WHERE cp.fk_compra = :id_compra and c.status = 'carrinho'");
-                    $sql->execute(['id_compra'=>$id_compra]);
+                    $sql = $conn->prepare("SELECT cp.*, p.nome, p.valor_unitario FROM compra_produto cp JOIN produto p ON cp.fk_produto = p.id_produto WHERE cp.fk_compra = :id_compra");
+                    $sql->execute([':id_compra'=>$id_compra]);
                     $total = 0;
                     $qtde_total = 0;
 
@@ -171,15 +194,16 @@ if($operacao){
                         </table>
                     </div>";
 
-                    if($_SESSION['statusconectado'] && $total > 0 && $status == 'carrinho'){
-                        echo "<br><div class= 'botao'> 
-                        <a href='carrinho.php?operacao=fechar' class='button'> Fechar compra </a>
-                        </div>";
-                    }
-
                     
                     if (!is_null($mensagem_carrinho)) {
                         echo "<br><h3 class='texto-carrinho'>$mensagem_carrinho</h3><br>";
+                    }
+                    else{
+                        if($_SESSION['statusconectado'] && $total > 0 && $status == 'carrinho'){
+                            echo "<br><div class= 'botao'> 
+                            <a href='carrinho.php?operacao=fechar' class='button'> Fechar compra </a>
+                            </div>";
+                        }
                     }
 
                     echo "</div>";

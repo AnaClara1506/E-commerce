@@ -21,7 +21,11 @@
     <?php
         if ( $_POST ) {
             include "util.php";
-            session_start();
+            if ( session_status() !== PHP_SESSION_ACTIVE ){
+                ini_set('session.gc_maxlifetime', 7776000);
+                session_start();
+            }
+            $session_id = session_id();
 
             $usuario = $_POST['usuario'];
             $conn = conecta();
@@ -31,7 +35,6 @@
                                       where email=:usuario");
 
             $select->bindParam(":usuario",$usuario);
-
 
             $senha   = $_POST['senha'];
 

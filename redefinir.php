@@ -14,9 +14,11 @@
      <?php
 
           include "util.php";
-          
-          session_start();
-
+          if ( session_status() !== PHP_SESSION_ACTIVE ){
+                ini_set('session.gc_maxlifetime', 7776000);
+                session_start();
+            }
+            $session_id = session_id();
           if ( $_POST ) {  
 
                $conn = conecta();

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
-    <?php session_start(); ?>
+    
     <?php include 'cabecalho.php' ?>
   </head>
   <body>

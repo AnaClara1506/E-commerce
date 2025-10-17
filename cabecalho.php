@@ -9,6 +9,11 @@
     <div class="container-imagem">
         <div class="topo">
             <img src="Imagens/Logotipo.png" alt="Logotipo" width="100px" class="logo">
+            <?php 
+                if ( session_status() !== PHP_SESSION_ACTIVE ){
+                    session_start();
+                }
+            $session_id = session_id(); ?>
             <div class="menu">
                 <nav>
                         <a href="index.php">Home</a>
