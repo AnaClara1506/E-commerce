@@ -7,7 +7,9 @@ if ( session_status() !== PHP_SESSION_ACTIVE ){
 include 'util.php';
 $conn = conecta();
 
-
+if(!isset($_SESSION['statusconectado'])){
+    $_SESSION['statusconectado'] = 1;
+}
 
 $id_usuario = $_SESSION['id_usuario'] ?? null;
 $operacao = $_GET['operacao'] ?? null;
@@ -31,19 +33,20 @@ if ($id_usuario > 0) {
     ");
     $sql_compra->execute([':sessao' => $session_id, ':usuario' => $id_usuario]);
 } else {
-    // usuário não logado, só busca pela sessão
+    // Usuário não logado, só busca carrinho SEM usuário associado
     $sql_compra = $conn->prepare("
         SELECT id_compra FROM compra 
         WHERE sessao = :sessao 
           AND status = 'carrinho' 
+          AND fk_usuario IS NULL
         ORDER BY id_compra DESC 
         LIMIT 1
     ");
     $sql_compra->execute([':sessao' => $session_id]);
 }
 
-$compra = $sql_compra->fetch();
 
+$compra = $sql_compra->fetch();
 
 if ($compra) {
     $id_compra = $compra['id_compra'];
@@ -61,6 +64,17 @@ if(!$id_compra){
                             VALUES ('carrinho', :sessao)");
     $insert->execute(['sessao'=>$session_id]);
     $id_compra = $conn->lastInsertId();
+
+    while($sql_compra->fetch()){
+        $valor_sql = $conn->prepare("SELECT valor_unitario FROM produto WHERE id_produto = :id_produto");
+        $valor_sql->execute(['id_produto' => $id_produto]);
+        $valor_unitario = $valor_sql->fetchColumn();
+
+        $insert_prod = $conn->prepare("INSERT INTO compra_produto (fk_compra, fk_produto, valor_unitario) 
+                                VALUES (:id_compra, :id_produto, :valor_unitario)");
+        $insert_prod->execute(['id_compra' => $id_compra,'id_produto' => $id_produto,'valor_unitario' => $valor_unitario]);
+    }
+    
 }
 
 
