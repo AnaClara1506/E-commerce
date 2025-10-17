@@ -2,6 +2,7 @@
 if ( session_status() !== PHP_SESSION_ACTIVE ){
 //  ini_set('session.gc_maxlifetime', 7776000);
     session_start();
+    
 }
 
 include 'util.php';
