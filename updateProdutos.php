@@ -24,7 +24,7 @@
     $update ->bindParam(':descricao' , $_POST['descricao']);
     $update ->bindParam(':tipo_produto' , $_POST['tipo_produto']);
     $update ->bindParam(':valor_unitario' , $_POST['valor_unitario']);
-    $update ->bindParam(':caminho_foto' , $caminho_foto);
+    $update ->bindParam(':imagem' , $caminho_foto);
 
     $update->execute();
 
