@@ -83,15 +83,15 @@
                     $linha = $select->fetch();
                 ?>
                 <?php while ($linha = $select->fetch() ){
-                    echo "<div class='tag' id='produtos'>";
                     if(!$linha['excluido']){
+                        echo "<div class='tag' id='produtos'>";
                         $foto = "Imagens/c".$linha['id_produto'].".jpg";
                         echo "<img src = '$foto'>";
                         echo "<p>".$linha['nome']."</p>";
                         echo "<p class='preco'> R$ ".$linha['valor_unitario']."</p><br>";
                         echo "<a href='produtos.php' class='button'>Ver produto</a>";
+                        echo "</div>";
                     }
-                    echo "</div>";
                 }
                 ?>
             </div>

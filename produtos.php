@@ -39,14 +39,16 @@
         <div class='tag'>
             <div class="lista-produtos">
                 <?php while ($linha = $select->fetch() ){
-                    $foto = "Imagens/c".$linha['id_produto'].".jpg";
-                    echo "<div class ='container-produtos'><img src = '$foto'>";
-                    echo "<div class='dados-produto'> <p>".$linha['nome']."</p>";
-                    echo "<p>".$linha['descricao']."</p>";
-                    echo "<p>".$linha['tipo_produto']."</p>";
-                    echo "<p class='preco'>".$linha['valor_unitario']."</p>";
-                    echo "<a href='carrinho.php?operacao=incluir&id_produto=".$linha['id_produto']."' class='button'> Adicionar ao carrinho </a>";
-                    echo "</div></div>";
+                    if(!$linha['excluido']){
+                        $foto = "Imagens/c".$linha['id_produto'].".jpg";
+                        echo "<div class ='container-produtos'><img src = '$foto'>";
+                        echo "<div class='dados-produto'> <p>".$linha['nome']."</p>";
+                        echo "<p>".$linha['descricao']."</p>";
+                        echo "<p>".$linha['tipo_produto']."</p>";
+                        echo "<p class='preco'>".$linha['valor_unitario']."</p>";
+                        echo "<a href='carrinho.php?operacao=incluir&id_produto=".$linha['id_produto']."' class='button'> Adicionar ao carrinho </a>";
+                        echo "</div></div>";
+                    }
                 }?>      
             </div>
         </div>

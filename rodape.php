@@ -17,13 +17,12 @@
             </div>
             <div class="contato">
                 <p>Email para contato</p><br>
-                <p class="p2">ecoline.ltda@gmail.com</p>
+                <p class="p2">ecoline.ltda10@gmail.com</p>
             </div>
             <div class="patrocinio">
                 <p>Patrocinadores</p><br>
                 <div class="patrocinio-imagem">
-                    <img src="Imagens/patrocinio_generico.png" width=80px>
-                    <img src="Imagens/patrocinio_generico.png" width=80px>
+                    <img src="Imagens/saravasti.jpg" width=80px>
                 </div>
             </div>
             <div class="autoria">

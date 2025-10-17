@@ -1,5 +1,6 @@
 <html>
      <link rel="stylesheet" href="css/login.css">
+     <link rel="icon" href="Imagens/Logotipo.png" type="image/png">
      <div class='box'>
           <h1>Redefinir a senha</h1>
           <form action='' method='post'>  
@@ -44,7 +45,7 @@
                          echo "<p><br>Senhas estão diferentes</p>";
                     }
                } else {
-                    echo "<br>Token invalido !!<br>";
+                    echo "<br><p>Token invalido !!</p>";
                }
           
                // se o preenchimento da nova senha esta correto

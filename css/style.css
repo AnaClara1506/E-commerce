@@ -259,8 +259,7 @@ p{
 }
 
 #produtos img {
-  min-width: 270px;
-  height: 200px;
+  height: 180px;
   overflow: hidden;
   position: relative;
   border-radius: 10px;
