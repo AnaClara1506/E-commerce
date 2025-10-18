@@ -134,7 +134,7 @@ if($operacao){
     </head>
     <body>
         <div class='container-carrinho'>
-            <div class="fade-in-text">
+            <div>
                 <br>
                 <h1>Meu Carrinho</h1>
                 <br>
@@ -165,7 +165,7 @@ if($operacao){
                     $total = 0;
                     $qtde_total = 0;
 
-                    echo "<div class='fade-in-text'> <div class='table-responsiva'>";
+                    echo "<div> <div class='table-responsiva'>";
                     echo "<table border='1' class='tabela-carrinho'>
                             <tr>
                                 <th></th>
@@ -195,7 +195,7 @@ if($operacao){
                     }
                     echo "</table></div>";
                     echo "<br>
-                    <h2 class='fade-in-text'> Resumo do pedido: </h2>
+                    <h2> Resumo do pedido: </h2>
                     <br>
                     <div class='table-responsiva'>
                         <table border='1' class='tabela-resumo'>
