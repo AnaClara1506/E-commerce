@@ -1,4 +1,5 @@
 <?php
+    date_default_timezone_set('America/Sao_Paulo');
     function conecta($params = "") {
         if (!is_array($params) || empty($params)) {
             $dsn = "pgsql:host=projetoscti.com.br;port=54432;dbname=eq4.ini2a";

@@ -67,6 +67,22 @@
             preservando a praticidade e incentivando as pequenas práticas que auxiliarão na
             transformação de um futuro sustentável e equilibrado entre as pessoas e o planeta Terra.
           </h3> 
+          <br>
+           <h2 class="fade-in-text">Nossa Visão </h2>
+          <h3 class="fade-in-text">
+            A EcoLine, visando qualidade aos seus clientes diante dos produtos e serviços, pretende alcançar
+             espaço no mercado ecológico e regional, de maneira a transformar a maneira com que o cotidiano, 
+             a produtividade e a sustentabilidade se relacionam. Assim, pretendemos ser reconhecidos como uma 
+             empresa que se compromete com o meio ambiente e com a natureza de nosso país, ao mesmo tempo que 
+             se dedica ao bem estar de seus clientes.
+          </h3> 
+          <br>
+          <h2 class="fade-in-text">Nossos Valores </h2>
+          <h3 class="fade-in-text">
+            Acreditamos que  preservar a natureza é essencial para a construção de um futuro digno para as próximas 
+            gerações, além de valorizarmos a produtividade no cotidiano de forma organizada e feita com excelência,
+             qualidade e sustentabilidade.
+          </h3> 
         </article>
       </div>
       <br><br>
