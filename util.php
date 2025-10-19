@@ -13,6 +13,7 @@
         try {
             $varConn = new PDO($dsn, $user, $password);
             $varConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $varConn->exec("SET TIME ZONE 'America/Sao_Paulo'");
             return $varConn;
         } catch (PDOException $e) {
             echo "Não conectado: " . $e->getMessage(); 
