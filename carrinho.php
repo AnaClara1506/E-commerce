@@ -186,7 +186,7 @@ if($operacao){
                         echo "<td>".$linha['nome']."</td>";
                         echo "<td>R$ ".$linha['valor_unitario']."</td>";
                         echo "<td>".$linha['quantidade']."</td>";
-                        echo "<td>".$subtotal."</td>";
+                        echo "<td> R$".number_format($subtotal, 2, '.', '.')."</td>";
                         if($status == 'carrinho'){
                             echo "<td><a href='carrinho.php?operacao=incluir&id_produto=".$linha['fk_produto']."' class='button'> Incluir </a> </td>";
                             echo "<td><a href='carrinho.php?operacao=excluir&id_produto=".$linha['fk_produto']."' class='button'> Excluir </a> </td>";
@@ -205,7 +205,7 @@ if($operacao){
                             </tr>
                             <tr>
                                 <td>".$qtde_total."</td>
-                                <td>".$total."</td>
+                                <td> R$".number_format($total, 2, '.', '.')."</td>
                         </table>
                     </div>";
 

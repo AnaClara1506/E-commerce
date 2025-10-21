@@ -34,7 +34,6 @@
                 $varSQL = "SELECT * FROM produto";
                 $select = $conn->prepare($varSQL);
                 $select->execute();
-                $linha = $select->fetch();
         ?>
         <div class='tag'>
             <div class="lista-produtos">

@@ -80,7 +80,6 @@
                     $varSQL = "SELECT * FROM produto";
                     $select = $conn->prepare($varSQL);
                     $select->execute();
-                    $linha = $select->fetch();
                 ?>
                 <?php while ($linha = $select->fetch() ){
                     if(!$linha['excluido']){
